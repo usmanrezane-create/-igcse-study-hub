@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Usman's topical IGCSE revision hub for Physics 0625, Chemistry 0620 and Accounting 0452.">
+  <title>Usman's IGCSE Study Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#library">Skip to the topic library</a>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Study Hub home">
+        <span class="brand-mark">U</span>
+        <span>
+          <strong>Study Hub</strong>
+          <small>IGCSE 2026</small>
+        </span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#library">Topic library</a>
+        <a href="#how-to-use">How to use</a>
+      </nav>
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> Personal revision portal</div>
+        <h1>Your topical questions.<br><em>Finally organised.</em></h1>
+        <p>Topical practice for IGCSE. Accounting 0452 is free; Physics 0625 and Chemistry 0620 unlock after PayPal payment.</p>
+        <div class="access-summary" aria-label="Subject access levels">
+          <span class="free-chip">✓ Accounting free</span>
+          <span class="premium-chip">🔒 Physics + Chemistry premium</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#library">Start revising <span aria-hidden="true">→</span></a>
+          <button class="button button-secondary" id="continueButton" type="button">Continue where I stopped</button>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Question bank summary">
+        <div class="panel-kicker">YOUR QUESTION BANK</div>
+        <div class="total-number">739</div>
+        <div class="total-label">Topical questions</div>
+        <div class="subject-bars">
+          <div class="bar-row"><span><i class="dot physics-dot"></i>Physics</span><strong>353</strong></div>
+          <div class="bar-track"><i class="physics-bar" style="width:47.8%"></i></div>
+          <div class="bar-row"><span><i class="dot chemistry-dot"></i>Chemistry</span><strong>256</strong></div>
+          <div class="bar-track"><i class="chemistry-bar" style="width:34.6%"></i></div>
+          <div class="bar-row"><span><i class="dot accounting-dot"></i>Accounting</span><strong>130</strong></div>
+          <div class="bar-track"><i class="accounting-bar" style="width:17.6%"></i></div>
+        </div>
+        <div class="panel-note"><span aria-hidden="true">✓</span> Topical practice · Premium PDFs are encrypted</div>
+      </div>
+    </section>
+
+    <section class="library-section" id="library">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow"><span></span> TOPIC LIBRARY</div>
+          <h2>Choose what to practise</h2>
+          <p>Open Accounting free. Physics and Chemistry topical packs require premium access through PayPal.</p>
+        </div>
+        <div class="progress-card" aria-live="polite">
+          <div class="progress-ring" id="progressRing"><span id="progressPercent">0%</span></div>
+          <div><strong id="progressLabel">0 of 25 topics</strong><small>marked complete</small></div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Library filters">
+        <div class="subject-tabs" role="tablist" aria-label="Filter by subject">
+          <button class="subject-tab active" role="tab" aria-selected="true" data-subject="all">All subjects <span>25</span></button>
+          <button class="subject-tab" role="tab" aria-selected="false" data-subject="physics">Physics <span>6</span></button>
+          <button class="subject-tab" role="tab" aria-selected="false" data-subject="chemistry">Chemistry <span>12</span></button>
+          <button class="subject-tab" role="tab" aria-selected="false" data-subject="accounting">Accounting <span>7</span></button>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <span class="sr-only">Search topics and subtopics</span>
+          <input id="searchInput" type="search" placeholder="Search topics or subtopics…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <div class="results-line"><strong id="resultCount">25 topics</strong><span id="activeFilterLabel">across all three subjects</span></div>
+      <div class="topic-grid" id="topicGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div>⌕</div>
+        <h3>No matching topic</h3>
+        <p>Try a different word, such as “momentum”, “electrolysis” or “depreciation”.</p>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-to-use">
+      <div class="eyebrow light"><span></span> A SIMPLE REVISION ROUTINE</div>
+      <h2>Practise in the right order</h2>
+      <div class="steps">
+        <article><b>01</b><div><h3>Choose one subtopic</h3><p>Use the list on each card so you know exactly what the paper covers.</p></div></article>
+        <article><b>02</b><div><h3>Answer without notes</h3><p>Work through the topical question pages and show every step clearly.</p></div></article>
+        <article><b>03</b><div><h3>Mark and correct</h3><p>Open the matching answers, correct mistakes, then mark the topic complete.</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Usman's IGCSE Study Hub</strong><span>Physics 0625 · Chemistry 0620 · Accounting 0452</span></div>
+    <p>Personal revision portal · Oct/Nov 2026</p>
+  </footer>
+
+  <dialog class="pdf-dialog" id="pdfDialog">
+    <div class="dialog-head">
+      <div><span id="dialogSubject">SUBJECT</span><strong id="dialogTitle">Document</strong></div>
+      <div class="dialog-actions">
+        <a id="dialogDownload" class="dialog-link" href="#" download>Download PDF</a>
+        <button id="dialogClose" class="dialog-close" type="button" aria-label="Close PDF viewer">×</button>
+      </div>
+    </div>
+    <iframe id="pdfFrame" title="Topical PDF viewer"></iframe>
+  </dialog>
+
+
+  <dialog class="paywall-dialog" id="paywallDialog">
+    <div class="paywall-shell">
+      <button id="paywallClose" class="paywall-close" type="button" aria-label="Close payment window">×</button>
+      <div class="paywall-icon" aria-hidden="true">🔒</div>
+      <div class="eyebrow"><span></span> PREMIUM ACCESS</div>
+      <h2>Unlock Physics + Chemistry</h2>
+      <p class="paywall-lead">Pay securely with PayPal to access every Physics and Chemistry question bank and answer booklet.</p>
+
+      <div class="paywall-benefits">
+        <span>✓ 609 premium questions</span>
+        <span>✓ Topical PDF packs</span>
+        <span>✓ Questions and answers</span>
+      </div>
+
+      <div class="paypal-box">
+        <div class="paypal-label">PAY WITH PAYPAL</div>
+        <script src="https://www.paypal.com/sdk/js?client-id=BAAl1SqpCsbnsuno79pYwpUkazZYkaVHTD1ZRQHjyT0vsP_GZ0z9y26bonVRBo7U_wVglcNHHPePnXHqxA&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+        <div id="paypal-container-SHCZMQMALAS5U"></div>
+        <script>
+          paypal.HostedButtons({
+            hostedButtonId: "SHCZMQMALAS5U",
+          }).render("#paypal-container-SHCZMQMALAS5U")
+        </script>
+      </div>
+
+      <div class="access-divider"><span>Already paid?</span></div>
+      <form id="accessCodeForm" class="access-code-form">
+        <label for="accessCode">Enter the access code supplied after payment</label>
+        <div class="access-code-row">
+          <input id="accessCode" name="accessCode" type="password" autocomplete="off" spellcheck="false" placeholder="Premium access code" required>
+          <button id="unlockButton" class="button button-primary" type="submit">Unlock</button>
+        </div>
+        <p id="accessMessage" class="access-message" role="status" aria-live="polite"></p>
+      </form>
+      <p class="paywall-note">Keep your PayPal receipt. On this static website, the seller confirms payment and supplies the access code.</p>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
