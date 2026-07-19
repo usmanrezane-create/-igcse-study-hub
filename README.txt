@@ -1,26 +1,25 @@
-USMAN'S IGCSE STUDY HUB — FINAL COMPLETE WEBSITE
+TOPICAL IGCSE PAST PAPERS — COMPLETE STUDY WEBSITE
+===================================================
+
+Open index.html to preview the website locally.
 
 Included:
-- Dark premium responsive design
-- Homepage “View all available subjects” button
-- Mathematics 0580 questions and answer booklets
-- Physics 0625 topical question banks
-- Chemistry 0620 topical question banks plus all 12 Chemistry answer PDFs
-- Accounting 0452 topical question banks
-- Search, subject filters, PDF viewer, downloads and local progress tracking
-- PayPal Hosted Button checkout for 30-day premium access
+- Modern light study-platform design
+- Mathematics 0580 topic questions and answer PDFs
+- Physics 0625 topic question PDFs
+- Chemistry 0620 topic questions and all 12 answer PDFs
+- Accounting 0452 topic question PDFs
+- Subject filters, topic search and progress tracking
+- PDF viewer and download controls
+- PayPal Hosted Button integration supplied by the site owner
+- Responsive desktop, tablet and mobile layout
 
-PayPal configuration included:
-- Hosted Button ID: SHCZMQMALAS5U
-- Currency: USD
-- Venmo disabled
+PAYPAL NOTE
+-----------
+The PayPal Hosted Button is included. This static website can display checkout,
+but automatic premium account unlocking requires a secure backend or webhook.
 
-Important:
-The PayPal button collects payment through the configuration in the owner's PayPal account. A static website cannot securely unlock accounts automatically by itself. Automatic access activation needs a secure backend or must be handled manually after checking the payment receipt.
-
-To open locally:
-1. Extract the ZIP.
-2. Open igcse-study-hub/index.html in a modern browser.
-3. Internet access is required for PayPal checkout.
-
-For GitHub Pages, upload everything inside the igcse-study-hub folder without changing the folder structure.
+PUBLISHING
+----------
+Upload the complete contents of this folder to GitHub Pages or your web host.
+Keep the assets folder structure unchanged so every PDF link continues to work.

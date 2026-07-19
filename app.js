@@ -39,29 +39,29 @@ const subjectMeta = {
   maths: {
     name: 'Maths',
     code: '0580',
-    icon: '∑',
-    description: 'Extended Maths topical Paper 4 practice organised by topic, with matching answer booklets for every section.',
+    icon: 'M',
+    description: 'Extended Mathematics Paper 4 questions organised by topic, with matching answer booklets for every section.',
     note: 'Includes question and answer PDFs for each topic.'
   },
   physics: {
     name: 'Physics',
     code: '0625',
-    icon: '⚛',
-    description: 'Premium Physics Paper 4 topical banks covering the full syllabus from motion to space physics.',
+    icon: 'P',
+    description: 'Physics Paper 4 topic banks covering motion, thermal physics, waves, electricity, nuclear and space physics.',
     note: 'Questions arranged into 6 large revision areas.'
   },
   chemistry: {
     name: 'Chemistry',
     code: '0620',
-    icon: '🧪',
-    description: 'Chemistry topical question banks grouped clearly from the particle model all the way to organic chemistry.',
+    icon: 'C',
+    description: 'Chemistry Paper 4 questions organised from the particle model through to organic and practical chemistry.',
     note: 'Strong topic coverage for theory practice.'
   },
   accounting: {
     name: 'Accounting',
     code: '0452',
-    icon: '¤',
-    description: 'Accounting Paper 2 topical practice with premium sections for bookkeeping, procedures and statements.',
+    icon: 'A',
+    description: 'Accounting Paper 2 practice covering bookkeeping, verification, procedures, statements and analysis.',
     note: 'Best for focused theory and structured practice.'
   }
 };
@@ -162,8 +162,8 @@ function cardMarkup(topic) {
 
       <div class="card-actions">
         <div class="open-group">
-          <button class="card-button primary open-pdf" type="button" data-file="${topic.questions}" data-kind="Questions" data-title="${topic.title}">▤ Questions</button>
-          ${topic.answers ? `<button class="card-button open-pdf" type="button" data-file="${topic.answers}" data-kind="Answers" data-title="${topic.title}">✓ Answers</button>` : ''}
+          <button class="card-button primary open-pdf" type="button" data-file="${topic.questions}" data-kind="Questions" data-title="${topic.title}">Open questions</button>
+          ${topic.answers ? `<button class="card-button open-pdf" type="button" data-file="${topic.answers}" data-kind="Answers" data-title="${topic.title}">View answers</button>` : ''}
         </div>
       </div>
     </article>`;
