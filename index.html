@@ -3,278 +3,314 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Topical IGCSE past papers organised by subject and topic, with free Chemistry and 30-day premium access for the full library.">
-  <meta name="theme-color" content="#123b5d">
-  <title>Topical IGCSE Past Papers</title>
+  <meta name="description" content="Usman's premium topical IGCSE past paper questions portal for Mathematics 0580, Physics 0625, Chemistry 0620 and Accounting 0452.">
+  <title>Usman's Topical IGCSE Past Paper Questions | Premium Portal V2</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#subjects">Skip to subjects</a>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Topical IGCSE Past Papers home">
-        <strong>TOPICAL IGCSE PAST PAPERS</strong>
-        <small>Recent exam practice, organised by topic</small>
-      </a>
+  <div class="page-shell">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="ambient ambient-c"></div>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#subjects">Subjects</a>
-        <a href="#chemistry">Free Chemistry</a>
-        <a href="#premium">Premium</a>
-      </nav>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="Go to homepage">
+          <span class="brand-mark">U</span>
+          <span class="brand-copy">
+            <strong>Usman's Study Hub</strong>
+            <small>PREMIUM PORTAL V2</small>
+          </span>
+        </a>
 
-      <button class="account-button" id="accountButton" type="button">
-        <span class="account-dot" aria-hidden="true"></span>
-        <span id="accountButtonText">Sign in</span>
-      </button>
-    </div>
-  </header>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#overview">Overview</a>
+          <a href="#subjects">Subjects</a>
+          <a href="#revision-zone">Revision Zone</a>
+          <a href="#method">Method</a>
+        </nav>
 
-  <main id="top">
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">CAMBRIDGE IGCSE • TOPICAL REVISION</div>
-          <h1>Topical IGCSE<br><span>Past Papers</span></h1>
-          <p class="hero-lead">
-            Practise topic by topic using clearly organised past-paper questions. Chemistry is completely free, while one 30-day pass unlocks every other premium subject currently available.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#chemistry">Open free Chemistry</a>
-            <button class="button button-secondary" id="heroPremiumButton" type="button">Get 30-day full access</button>
-          </div>
-
-          <div class="hero-note">
-            <strong>Recent five-year focus</strong>
-            <span>Physics, Chemistry and Accounting use recent five-year banks. Maths includes an extended 2015–2024 archive for extra practice.</span>
-          </div>
+        <div class="nav-actions">
+          <a class="nav-cta" href="#subjects">All Subjects</a>
+          <button class="nav-cta premium-nav-button" id="navPremiumButton" type="button">Get Premium</button>
         </div>
+      </div>
+    </header>
 
-        <aside class="hero-summary" aria-label="Library summary">
-          <div class="summary-label">YOUR REVISION LIBRARY</div>
-          <div class="summary-main">
-            <strong>1,490</strong>
-            <span>topical questions</span>
-          </div>
-          <div class="summary-grid">
-            <div><strong>4</strong><span>subjects</span></div>
-            <div><strong>32</strong><span>topic packs</span></div>
-            <div><strong>12</strong><span>free Chemistry topics</span></div>
-            <div><strong>30</strong><span>days premium access</span></div>
-          </div>
-          <div class="summary-progress">
-            <div>
-              <span>Your progress</span>
-              <strong id="summaryProgressText">0 of 32 complete</strong>
+    <main>
+      <section class="hero-section" id="overview">
+        <div class="container hero-grid">
+          <div class="hero-copy panel-shell">
+            <div class="eyebrow">ELITE IGCSE REVISION PORTAL</div>
+            <div class="hero-kicker">TOPICAL IGCSE PAST PAPER QUESTIONS</div>
+            <h1>A premium study hub that finally looks <span>extraordinary</span>.</h1>
+            <p>
+              Your topical IGCSE past paper questions are now presented in a polished dark-mode portal with clearer subject separation,
+              better structure, a stronger visual identity and a more premium overall experience.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#subjects">View all available subjects</a>
+              <button class="button button-premium" id="heroPremiumButton" type="button">Get 30-day premium — US$20</button>
+              <button class="button button-secondary" id="continueButton" type="button">Continue last opened PDF</button>
             </div>
-            <div class="progress-track"><i id="summaryProgressBar"></i></div>
-          </div>
-        </aside>
-      </div>
-    </section>
 
-    <section class="free-banner" id="chemistry">
-      <div class="container free-banner-inner">
-        <div class="free-badge">FREE FOR EVERYONE</div>
+            <div class="hero-highlights">
+              <div class="highlight-card">
+                <span class="highlight-label">TOTAL TOPICS</span>
+                <strong id="heroTopicCount">35</strong>
+                <small>organised clearly</small>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-label">TOTAL QUESTIONS</span>
+                <strong>1,492</strong>
+                <small>topical practice items</small>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-label">ANSWER SUPPORT</span>
+                <strong>22 Booklets</strong>
+                <small>Maths + Chemistry answers</small>
+              </div>
+            </div>
+
+            <div class="trust-strip">
+              <span>Dark mode only</span>
+              <span>Premium layout</span>
+              <span>Subjects shown separately</span>
+              <span>Search + progress tracking</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel panel-shell" aria-label="Revision dashboard">
+            <div class="panel-topline">COMMAND CENTER</div>
+            <h2>Built like a real premium student portal</h2>
+
+            <div class="metric-grid">
+              <article>
+                <span>Subjects</span>
+                <strong>4</strong>
+                <small>Maths, Physics, Chemistry, Accounting</small>
+              </article>
+              <article>
+                <span>Question banks</span>
+                <strong>35</strong>
+                <small>sorted topically</small>
+              </article>
+              <article>
+                <span>Your progress</span>
+                <strong id="panelProgressPercent">0%</strong>
+                <small id="panelProgressText">0 of 35 topics completed</small>
+              </article>
+              <article>
+                <span>Portal quality</span>
+                <strong>V2</strong>
+                <small>upgraded premium interface</small>
+              </article>
+            </div>
+
+            <div class="mini-stack">
+              <article>
+                <b>01</b>
+                <div>
+                  <strong>Open one subject</strong>
+                  <span>Stay focused topic by topic.</span>
+                </div>
+              </article>
+              <article>
+                <b>02</b>
+                <div>
+                  <strong>Solve the questions</strong>
+                  <span>Use the PDFs like a true exam drill.</span>
+                </div>
+              </article>
+              <article>
+                <b>03</b>
+                <div>
+                  <strong>Track your progress</strong>
+                  <span>Mark completed topics and build momentum.</span>
+                </div>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="portal-strip">
+        <div class="container portal-strip-grid">
+          <article class="strip-card">
+            <span>Portal focus</span>
+            <strong>Topical question practice</strong>
+            <small>Designed for structured revision, not clutter.</small>
+          </article>
+          <article class="strip-card">
+            <span>Subject design</span>
+            <strong>Each subject stands alone</strong>
+            <small>No more grouping all subjects together in one messy block.</small>
+          </article>
+          <article class="strip-card">
+            <span>Answer support</span>
+            <strong>Questions + Answers</strong>
+            <small>Maths and all 12 Chemistry topics include answer support.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="subject-showcase" id="subjects">
+        <div class="container">
+          <div class="section-heading dual">
+            <div>
+              <div class="eyebrow">SUBJECTS AT A GLANCE</div>
+              <h2>All subjects shown clearly</h2>
+              <p>Each subject has its own premium identity, section and topic cards.</p>
+            </div>
+            <div class="progress-panel panel-shell" aria-live="polite">
+              <div class="progress-circle" id="progressCircle"><span id="progressPercent">0%</span></div>
+              <div>
+                <strong id="progressLabel">0 of 35 topics completed</strong>
+                <small>Track your study progress cleanly</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="subject-overview-grid" id="subjectOverview"></div>
+        </div>
+      </section>
+
+      <section class="revision-zone" id="revision-zone">
+        <div class="container">
+          <div class="toolbar panel-shell">
+            <div class="toolbar-copy">
+              <div class="eyebrow">REVISION ZONE</div>
+              <h2>Search and open topic banks instantly</h2>
+              <p>Jump straight to the exact topic you want without scrolling through a messy page.</p>
+            </div>
+            <div class="toolbar-controls">
+              <div class="filter-pills" role="tablist" aria-label="Filter subjects">
+                <button class="filter-pill active" data-subject="all" aria-selected="true">All subjects</button>
+                <button class="filter-pill" data-subject="maths" aria-selected="false">Maths</button>
+                <button class="filter-pill" data-subject="physics" aria-selected="false">Physics</button>
+                <button class="filter-pill" data-subject="chemistry" aria-selected="false">Chemistry</button>
+                <button class="filter-pill" data-subject="accounting" aria-selected="false">Accounting</button>
+              </div>
+
+              <label class="search-box" for="searchInput">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input id="searchInput" type="search" placeholder="Search topics, subtopics or subject names..." autocomplete="off">
+                <kbd>/</kbd>
+              </label>
+            </div>
+          </div>
+
+          <div class="results-strip">
+            <div>
+              <strong id="resultCount">35 topics</strong>
+              <span id="activeFilterLabel">across all four subjects</span>
+            </div>
+            <div class="jump-links" id="jumpLinks"></div>
+          </div>
+
+          <div class="subject-sections" id="subjectSections"></div>
+
+          <div class="empty-state panel-shell" id="emptyState" hidden>
+            <div class="empty-icon">⌕</div>
+            <h3>No matching topic found</h3>
+            <p>Try words like <strong>vectors</strong>, <strong>electrolysis</strong>, <strong>momentum</strong> or <strong>depreciation</strong>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="routine-section" id="method">
+        <div class="container">
+          <div class="section-heading center">
+            <div class="eyebrow">PREMIUM STUDY METHOD</div>
+            <h2>Use the portal like a top student</h2>
+            <p>Keep your revision sharp, organised and consistent with a simple three-step routine.</p>
+          </div>
+
+          <div class="routine-grid">
+            <article class="routine-card panel-shell">
+              <b>01</b>
+              <h3>Pick a target topic</h3>
+              <p>Choose the exact topic you are weak in instead of wasting time searching through mixed papers.</p>
+            </article>
+            <article class="routine-card panel-shell">
+              <b>02</b>
+              <h3>Answer under pressure</h3>
+              <p>Use the topical PDFs as a proper question bank and practise like you are already in the exam.</p>
+            </article>
+            <article class="routine-card panel-shell">
+              <b>03</b>
+              <h3>Review and complete</h3>
+              <p>Open the Maths and Chemistry answers, correct mistakes and mark each topic complete to stay disciplined.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap panel-shell">
         <div>
-          <h2>Chemistry 0620 is fully accessible</h2>
-          <p>Open all 12 Chemistry topic packs without signing in or paying.</p>
+          <strong>Usman's Topical IGCSE Past Paper Questions</strong>
+          <span>Mathematics 0580 · Physics 0625 · Chemistry 0620 · Accounting 0452</span>
         </div>
-        <a class="button button-light" href="#section-chemistry">Start Chemistry</a>
+        <p>Premium Portal V2 · Dark luxury theme · Subject-focused revision experience</p>
       </div>
-    </section>
+    </footer>
+  </div>
 
-    <section class="subjects-section" id="subjects">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow dark">CHOOSE A SUBJECT</div>
-            <h2>Everything is separated and easy to find</h2>
-            <p>Chemistry appears first because it is free. Premium access covers Maths, Physics, Accounting and any additional premium subjects added during your active 30-day access.</p>
-          </div>
-        </div>
-
-        <div class="subject-overview" id="subjectOverview"></div>
-      </div>
-    </section>
-
-    <section class="premium-section" id="premium">
-      <div class="container premium-grid">
-        <div>
-          <div class="eyebrow light">30-DAY PREMIUM PASS</div>
-          <h2>One payment. Full premium access for 30 days.</h2>
-          <p>Unlock every premium subject on this website for 30 days. This is a one-time US$20 payment and does not renew automatically.</p>
-        </div>
-        <div class="premium-points">
-          <span>✓ Google account login</span>
-          <span>✓ No shared access codes</span>
-          <span>✓ Full premium library access</span>
-          <span>✓ Access expires after 30 days</span>
-        </div>
-        <button class="button button-accent" id="sectionPremiumButton" type="button">Get 30-day access — US$20</button>
-      </div>
-    </section>
-
-    <section class="library-section" id="library">
-      <div class="container">
-        <div class="library-heading">
-          <div>
-            <div class="eyebrow dark">TOPICAL PAPER LIBRARY</div>
-            <h2>Find the exact topic you need</h2>
-          </div>
-
-          <label class="search-box">
-            <span aria-hidden="true">⌕</span>
-            <span class="sr-only">Search topics and subtopics</span>
-            <input id="searchInput" type="search" placeholder="Search a topic…" autocomplete="off">
-          </label>
-        </div>
-
-        <div class="filter-row" role="tablist" aria-label="Filter by subject">
-          <button class="filter-pill active" type="button" data-subject="all" role="tab" aria-selected="true">All subjects</button>
-          <button class="filter-pill" type="button" data-subject="chemistry" role="tab" aria-selected="false">Chemistry <span>Free</span></button>
-          <button class="filter-pill" type="button" data-subject="maths" role="tab" aria-selected="false">Maths</button>
-          <button class="filter-pill" type="button" data-subject="physics" role="tab" aria-selected="false">Physics</button>
-          <button class="filter-pill" type="button" data-subject="accounting" role="tab" aria-selected="false">Accounting</button>
-        </div>
-
-        <div class="results-row">
-          <strong id="resultCount">32 topics</strong>
-          <span id="activeFilterLabel">across all four subjects</span>
-        </div>
-
-        <div class="subject-sections" id="subjectSections"></div>
-
-        <div class="empty-state" id="emptyState" hidden>
-          <strong>No matching topic found</strong>
-          <p>Try a different subject or search word.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="method-section">
-      <div class="container">
-        <div class="section-heading compact">
-          <div>
-            <div class="eyebrow dark">SIMPLE REVISION METHOD</div>
-            <h2>Use each topic pack properly</h2>
-          </div>
-        </div>
-        <div class="method-grid">
-          <article><b>01</b><h3>Choose one topic</h3><p>Focus on one clear syllabus area instead of mixing subjects.</p></article>
-          <article><b>02</b><h3>Work without notes</h3><p>Answer under timed conditions and show every step clearly.</p></article>
-          <article><b>03</b><h3>Correct your mistakes</h3><p>Review weak areas, then mark the topic complete.</p></article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-wrap">
-      <div><strong>TOPICAL IGCSE PAST PAPERS</strong><span>Maths 0580 · Physics 0625 · Chemistry 0620 · Accounting 0452</span></div>
-      <p>Chemistry is free. Premium access lasts 30 days and does not renew automatically.</p>
-    </div>
-  </footer>
-
-  <dialog class="account-dialog" id="accountDialog">
-    <div class="dialog-shell account-shell">
-      <button class="dialog-close" id="accountClose" type="button" aria-label="Close account window">×</button>
-      <div id="signedOutAccount">
-        <div class="dialog-kicker">YOUR ACCOUNT</div>
-        <h2>Sign in with Google</h2>
-        <p>Use your Google account to keep your premium access connected to you. This website does not read your Gmail messages.</p>
-        <button class="google-button" id="googleSignInButton" type="button">
-          <span class="google-mark" aria-hidden="true">G</span>
-          Continue with Google
-        </button>
-      </div>
-
-      <div id="signedInAccount" hidden>
-        <div class="account-profile">
-          <img id="accountAvatar" alt="" hidden>
-          <div class="avatar-fallback" id="avatarFallback">A</div>
-          <div><strong id="accountName">Account</strong><span id="accountEmail"></span></div>
-        </div>
-        <div class="account-status-card">
-          <span>ACCESS STATUS</span>
-          <strong id="accountStatus">Free access</strong>
-          <p id="accountExpiry">Chemistry is available without payment.</p>
-        </div>
-        <div class="account-actions">
-          <button class="button button-primary" id="accountUpgradeButton" type="button">Get premium</button>
-          <button class="text-button" id="signOutButton" type="button">Sign out</button>
-        </div>
-      </div>
-    </div>
-  </dialog>
 
   <dialog class="premium-dialog" id="premiumDialog">
-    <div class="dialog-shell premium-shell">
-      <button class="dialog-close" id="premiumClose" type="button" aria-label="Close premium window">×</button>
-      <div class="premium-dialog-head">
-        <div class="premium-icon" aria-hidden="true">30</div>
+    <div class="premium-modal-shell">
+      <button class="premium-close" id="premiumClose" type="button" aria-label="Close premium payment window">×</button>
+
+      <div class="premium-modal-head">
+        <div class="premium-days" aria-hidden="true">30</div>
         <div>
-          <div class="dialog-kicker">FULL PREMIUM ACCESS</div>
+          <span class="premium-eyebrow">FULL PREMIUM ACCESS</span>
           <h2>30-Day IGCSE Premium Access</h2>
         </div>
       </div>
 
-      <div class="price-row">
+      <div class="premium-price-row">
         <strong>US$20</strong>
         <span>one-time payment</span>
       </div>
 
-      <ul class="premium-list">
-        <li>Full access to every premium subject currently available</li>
-        <li>Includes additional premium subjects added during your active 30 days</li>
-        <li>No automatic renewal</li>
-        <li>Access expires 30 days after successful payment</li>
-      </ul>
-
-      <div class="payment-state" id="paymentSignedOut">
-        <p>Sign in with Google before paying so your purchase can be connected to your account.</p>
-        <button class="google-button" id="premiumGoogleButton" type="button"><span class="google-mark">G</span>Continue with Google</button>
+      <div class="premium-benefits" aria-label="Premium access benefits">
+        <p><b>✓ Full access</b> to every premium subject currently available.</p>
+        <p><b>✓ Chemistry answers included</b> for all 12 Chemistry topics.</p>
+        <p><b>✓ No automatic renewal.</b> You pay only when you choose.</p>
+        <p><b>✓ Access lasts 30 days</b> after successful payment.</p>
       </div>
 
-      <div class="payment-state" id="paymentActive" hidden>
-        <div class="success-panel">
-          <strong>Premium is active</strong>
-          <p id="premiumActiveText">You already have access.</p>
-          <button class="button button-primary" id="continuePremiumButton" type="button">Continue to premium subjects</button>
-        </div>
+      <div class="premium-divider"></div>
+      <p class="premium-payment-note">Pay securely using PayPal or an eligible debit or credit card. Keep your payment receipt for access confirmation.</p>
+      <div class="paypal-hosted-shell">
+        <div id="paypal-container-SHCZMQMALAS5U"></div>
+        <p class="paypal-loading" id="paypalLoading">Loading secure PayPal checkout…</p>
       </div>
-
-      <div class="payment-state" id="paymentReady" hidden>
-        <div class="signed-in-line"><span>Paying as</span><strong id="paymentUserEmail"></strong></div>
-        <div class="payment-terms">
-          <strong>Important payment terms</strong>
-          <p>This is a one-time US$20 payment for 30 days of access. It does not renew automatically. After 30 days, you must purchase access again.</p>
-        </div>
-        <div class="paypal-panel">
-          <div id="paypal-button-container-P-58263651AM188451SNJOJBBQ"></div>
-        </div>
-        <p class="payment-message" id="paymentMessage" aria-live="polite"></p>
-      </div>
+      <p class="premium-smallprint">This static website displays the PayPal checkout. Automatic account unlocking requires a connected secure backend.</p>
     </div>
   </dialog>
 
   <dialog class="pdf-dialog" id="pdfDialog">
-    <div class="pdf-head">
-      <div><span id="dialogSubject">SUBJECT</span><strong id="dialogTitle">Document</strong></div>
-      <div class="pdf-actions">
-        <a id="dialogDownload" href="#" download>Download</a>
-        <button id="pdfClose" type="button" aria-label="Close PDF">×</button>
+    <div class="dialog-head">
+      <div class="dialog-copy">
+        <span id="dialogSubject">SUBJECT</span>
+        <strong id="dialogTitle">Document</strong>
+      </div>
+      <div class="dialog-actions">
+        <a id="dialogDownload" class="dialog-link" href="#" download>Download PDF</a>
+        <button id="dialogClose" class="dialog-close" type="button" aria-label="Close PDF viewer">×</button>
       </div>
     </div>
-    <iframe id="pdfFrame" title="Topical paper viewer"></iframe>
+    <iframe id="pdfFrame" title="Topical PDF viewer"></iframe>
   </dialog>
 
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7"></script>
-  <script src="https://www.paypal.com/sdk/js?client-id=BAATetN_LODrb-EEEaunHB2zNTKqWz-VCNOedyHPVhB5tJ-xca4AsP2EhXEpZqQ6q4_kQf7wZFeByCgEXM&components=buttons&vault=true&intent=subscription&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAl1SqpCsbnsuno79pYwpUkazZYkaVHTD1ZRQHjyT0vsP_GZ0z9y26bonVRBo7U_wVglcNHHPePnXHqxA&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
   <script src="app.js"></script>
 </body>
 </html>
