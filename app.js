@@ -35,117 +35,248 @@ const topics = [
   { id: "accounting-analysis", subject: "accounting", code: "0452 · Paper 2 · 2021–2025", number: "06", title: "Analysis and Interpretation", count: 13, subtopics: ["Calculation of accounting ratios", "Understanding and interpreting ratios"], questions: "assets/accounting/accounting-06-analysis-interpretation-premium.pdf" },
   { id: "accounting-principles", subject: "accounting", code: "0452 · Paper 2 · 2021–2025", number: "07", title: "Accounting Principles and Policies", count: 0, subtopics: ["Accounting principles", "Accounting policies"], questions: "assets/accounting/accounting-07-principles-policies-premium.pdf" }
 ];
+const subjectMeta = {
+  maths: {
+    name: 'Maths',
+    code: '0580',
+    icon: '∑',
+    description: 'Extended Maths topical Paper 4 practice organised by topic, with matching answer booklets for every section.',
+    note: 'Includes question and answer PDFs for each topic.'
+  },
+  physics: {
+    name: 'Physics',
+    code: '0625',
+    icon: '⚛',
+    description: 'Premium Physics Paper 4 topical banks covering the full syllabus from motion to space physics.',
+    note: 'Questions arranged into 6 large revision areas.'
+  },
+  chemistry: {
+    name: 'Chemistry',
+    code: '0620',
+    icon: '🧪',
+    description: 'Chemistry topical question banks grouped clearly from the particle model all the way to organic chemistry.',
+    note: 'Strong topic coverage for theory practice.'
+  },
+  accounting: {
+    name: 'Accounting',
+    code: '0452',
+    icon: '¤',
+    description: 'Accounting Paper 2 topical practice with premium sections for bookkeeping, procedures and statements.',
+    note: 'Best for focused theory and structured practice.'
+  }
+};
 
-const subjectNames = { maths: "Maths", physics: "Physics", chemistry: "Chemistry", accounting: "Accounting" };
-const topicGrid = document.querySelector("#topicGrid");
-const searchInput = document.querySelector("#searchInput");
-const resultCount = document.querySelector("#resultCount");
-const activeFilterLabel = document.querySelector("#activeFilterLabel");
-const emptyState = document.querySelector("#emptyState");
-const pdfDialog = document.querySelector("#pdfDialog");
-const pdfFrame = document.querySelector("#pdfFrame");
-const dialogTitle = document.querySelector("#dialogTitle");
-const dialogSubject = document.querySelector("#dialogSubject");
-const dialogDownload = document.querySelector("#dialogDownload");
-let activeSubject = "all";
+const subjectOrder = ['maths', 'physics', 'chemistry', 'accounting'];
+const subjectOverview = document.querySelector('#subjectOverview');
+const subjectSections = document.querySelector('#subjectSections');
+const jumpLinks = document.querySelector('#jumpLinks');
+const searchInput = document.querySelector('#searchInput');
+const resultCount = document.querySelector('#resultCount');
+const activeFilterLabel = document.querySelector('#activeFilterLabel');
+const emptyState = document.querySelector('#emptyState');
+const pdfDialog = document.querySelector('#pdfDialog');
+const pdfFrame = document.querySelector('#pdfFrame');
+const dialogTitle = document.querySelector('#dialogTitle');
+const dialogSubject = document.querySelector('#dialogSubject');
+const dialogDownload = document.querySelector('#dialogDownload');
+const continueButton = document.querySelector('#continueButton');
+const filterButtons = [...document.querySelectorAll('.filter-pill')];
+
+let activeSubject = 'all';
 
 const getCompleted = () => {
-  try { return new Set(JSON.parse(localStorage.getItem("igcse-completed-topics") || "[]")); }
+  try { return new Set(JSON.parse(localStorage.getItem('igcse-completed-topics') || '[]')); }
   catch { return new Set(); }
 };
 
-const saveCompleted = set => localStorage.setItem("igcse-completed-topics", JSON.stringify([...set]));
+const saveCompleted = (set) => localStorage.setItem('igcse-completed-topics', JSON.stringify([...set]));
 
-function icon(type) {
-  if (type === "questions") return '<span aria-hidden="true">▤</span>';
-  if (type === "answers") return '<span aria-hidden="true">✓</span>';
-  return "";
+function getSubjectTopics(subject) {
+  return topics.filter(topic => topic.subject === subject);
+}
+
+function getSubjectQuestionTotal(subject) {
+  return getSubjectTopics(subject).reduce((sum, topic) => sum + (topic.count || 0), 0);
+}
+
+function countCompleted(subject = null) {
+  const completed = getCompleted();
+  return topics.filter(topic => completed.has(topic.id) && (!subject || topic.subject === subject)).length;
+}
+
+function updateProgress() {
+  const completedCount = countCompleted();
+  const percent = Math.round((completedCount / topics.length) * 100);
+  document.querySelector('#progressPercent').textContent = `${percent}%`;
+  document.querySelector('#progressLabel').textContent = `${completedCount} of ${topics.length} topics completed`;
+  document.querySelector('#panelProgressPercent').textContent = `${percent}%`;
+  document.querySelector('#panelProgressText').textContent = `${completedCount} of ${topics.length} topics completed`;
+  document.querySelector('#progressCircle').style.setProperty('--progress', `${percent * 3.6}deg`);
+}
+
+function subjectOverviewMarkup(subject) {
+  const meta = subjectMeta[subject];
+  const subjectTopics = getSubjectTopics(subject);
+  const questionTotal = getSubjectQuestionTotal(subject);
+  return `
+    <article class="subject-overview-card" data-subject="${subject}">
+      <div class="subject-tag"><i></i>${meta.name} ${meta.code}</div>
+      <h3>${meta.name}</h3>
+      <p>${meta.description}</p>
+      <div class="subject-overview-stats">
+        <div><span>Topics</span><strong>${subjectTopics.length}</strong></div>
+        <div><span>Questions</span><strong>${questionTotal}</strong></div>
+      </div>
+      <a class="subject-link subject-jump" href="#section-${subject}" data-set-subject="${subject}">Open ${meta.name} section <span aria-hidden="true">→</span></a>
+    </article>`;
 }
 
 function cardMarkup(topic) {
   const completed = getCompleted().has(topic.id);
   const shownSubtopics = topic.subtopics.slice(0, 4);
   const more = topic.subtopics.length - shownSubtopics.length;
-  const countText = topic.legacy ? `${topic.count} legacy questions` : (topic.count ? `${topic.count} question${topic.count === 1 ? "" : "s"}` : "Topic outline");
+  const countText = topic.legacy ? `${topic.count} legacy question${topic.count === 1 ? '' : 's'}` : (topic.count ? `${topic.count} question${topic.count === 1 ? '' : 's'}` : 'Topic outline');
   return `
-    <article class="topic-card ${topic.subject}" data-id="${topic.id}">
+    <article class="topic-card" data-id="${topic.id}" data-subject="${topic.subject}">
       <div class="card-top">
-        <div class="card-meta">
-          <span class="subject-pill">${subjectNames[topic.subject]} ${topic.number}</span>
-          <span class="question-count">${countText}</span>
+        <div class="card-headline">
+          <div>
+            <div class="card-topline"><i></i>${subjectMeta[topic.subject].name} · Topic ${topic.number}</div>
+            <h4>${topic.title}</h4>
+          </div>
+          <button class="card-button complete-button ${completed ? 'completed' : ''}" type="button" data-complete="${topic.id}" aria-label="${completed ? 'Mark topic incomplete' : 'Mark topic complete'}" title="${completed ? 'Completed' : 'Mark complete'}">${completed ? '✓' : '○'}</button>
         </div>
-        <h3>${topic.title}</h3>
         <div class="topic-code">${topic.code}</div>
+        <div class="topic-meta">
+          <span class="meta-chip">${countText}</span>
+          ${topic.answers ? '<span class="meta-chip">Questions + Answers</span>' : '<span class="meta-chip">Questions</span>'}
+        </div>
       </div>
-      <ul class="subtopics">
-        ${shownSubtopics.map(item => `<li>${item}</li>`).join("")}
-        ${topic.subtopics.slice(4).map(item => `<li class="extra-subtopic" hidden>${item}</li>`).join("")}
-      </ul>
-      ${more > 0 ? `<button class="subtopics-toggle" type="button" data-more="${more}">+ ${more} more subtopic${more === 1 ? "" : "s"}</button>` : ""}
+
+      <div class="subtopics">
+        ${shownSubtopics.map(item => `<span class="subtopic-pill">${item}</span>`).join('')}
+        ${topic.subtopics.slice(4).map(item => `<span class="subtopic-pill extra-subtopic" hidden>${item}</span>`).join('')}
+      </div>
+      ${more > 0 ? `<button class="subtopics-toggle" type="button" data-more="${more}">+ ${more} more subtopic${more === 1 ? '' : 's'}</button>` : ''}
+      ${topic.legacy ? '<div class="legacy-note">Legacy content only. This is removed from the current syllabus, so use it only if you want extra old practice.</div>' : ''}
+
       <div class="card-actions">
         <div class="open-group">
-          <button class="card-button primary open-pdf" type="button" data-file="${topic.questions}" data-kind="Questions" data-title="${topic.title}">${icon("questions")} Questions</button>
-          ${topic.answers ? `<button class="card-button open-pdf" type="button" data-file="${topic.answers}" data-kind="Answers" data-title="${topic.title}">${icon("answers")} Answers</button>` : ""}
+          <button class="card-button primary open-pdf" type="button" data-file="${topic.questions}" data-kind="Questions" data-title="${topic.title}">▤ Questions</button>
+          ${topic.answers ? `<button class="card-button open-pdf" type="button" data-file="${topic.answers}" data-kind="Answers" data-title="${topic.title}">✓ Answers</button>` : ''}
         </div>
-        <button class="card-button complete-button ${completed ? "completed" : ""}" type="button" data-complete="${topic.id}" aria-label="${completed ? "Mark topic incomplete" : "Mark topic complete"}" title="${completed ? "Completed" : "Mark complete"}">${completed ? "✓" : "○"}</button>
       </div>
     </article>`;
 }
 
-function renderTopics() {
-  const term = searchInput.value.trim().toLowerCase();
-  const filtered = topics.filter(topic => {
-    const matchesSubject = activeSubject === "all" || topic.subject === activeSubject;
-    const haystack = [topic.title, topic.code, subjectNames[topic.subject], ...topic.subtopics].join(" ").toLowerCase();
-    return matchesSubject && haystack.includes(term);
-  });
-  topicGrid.innerHTML = filtered.map(cardMarkup).join("");
-  resultCount.textContent = `${filtered.length} topic${filtered.length === 1 ? "" : "s"}`;
-  activeFilterLabel.textContent = activeSubject === "all" ? "across all four subjects" : `in ${subjectNames[activeSubject]}`;
-  emptyState.hidden = filtered.length !== 0;
-  updateProgress();
+function sectionMarkup(subject, subjectTopics) {
+  const meta = subjectMeta[subject];
+  const questionTotal = subjectTopics.reduce((sum, topic) => sum + (topic.count || 0), 0);
+  const completedCount = countCompleted(subject);
+  const hasAnswers = subjectTopics.some(topic => Boolean(topic.answers));
+
+  return `
+    <section class="subject-section" id="section-${subject}" data-subject="${subject}">
+      <div class="subject-section-head">
+        <div>
+          <div class="subject-title-wrap">
+            <div class="subject-icon">${meta.icon}</div>
+            <div>
+              <h3>${meta.name}</h3>
+              <p>${meta.code} · ${meta.note}</p>
+            </div>
+          </div>
+          <div class="subject-summary">${meta.description}</div>
+        </div>
+
+        <div class="subject-mini-stats">
+          <div><strong>${subjectTopics.length}</strong><span>topics</span></div>
+          <div><strong>${questionTotal}</strong><span>questions</span></div>
+          <div><strong>${completedCount}</strong><span>completed</span></div>
+          <div><strong>${hasAnswers ? 'Yes' : 'No'}</strong><span>answers included</span></div>
+        </div>
+      </div>
+
+      <div class="topic-grid">
+        ${subjectTopics.map(cardMarkup).join('')}
+      </div>
+    </section>`;
 }
 
-function updateProgress() {
-  const completed = getCompleted();
-  const count = topics.filter(topic => completed.has(topic.id)).length;
-  const percent = Math.round((count / topics.length) * 100);
-  document.querySelector("#progressPercent").textContent = `${percent}%`;
-  document.querySelector("#progressLabel").textContent = `${count} of ${topics.length} topics`;
-  document.querySelector("#progressRing").style.setProperty("--progress", `${percent * 3.6}deg`);
+function filteredTopics() {
+  const term = searchInput.value.trim().toLowerCase();
+  return topics.filter(topic => {
+    const matchesSubject = activeSubject === 'all' || topic.subject === activeSubject;
+    const haystack = [topic.title, topic.code, subjectMeta[topic.subject].name, ...topic.subtopics].join(' ').toLowerCase();
+    return matchesSubject && haystack.includes(term);
+  });
+}
+
+function renderOverview() {
+  subjectOverview.innerHTML = subjectOrder.map(subjectOverviewMarkup).join('');
+}
+
+function renderTopics() {
+  const filtered = filteredTopics();
+  const visibleSubjects = subjectOrder.filter(subject => filtered.some(topic => topic.subject === subject));
+
+  subjectSections.innerHTML = visibleSubjects.map(subject => sectionMarkup(subject, filtered.filter(topic => topic.subject === subject))).join('');
+  jumpLinks.innerHTML = visibleSubjects.map(subject => `<a class="jump-link subject-jump" href="#section-${subject}" data-set-subject="${subject}">${subjectMeta[subject].name}</a>`).join('');
+
+  resultCount.textContent = `${filtered.length} topic${filtered.length === 1 ? '' : 's'}`;
+  activeFilterLabel.textContent = activeSubject === 'all' ? 'across all four subjects' : `in ${subjectMeta[activeSubject].name}`;
+  emptyState.hidden = filtered.length !== 0;
+  subjectSections.hidden = filtered.length === 0;
+  updateProgress();
 }
 
 function openPdf(file, title, kind) {
   dialogTitle.textContent = `${title} — ${kind}`;
   const topic = topics.find(item => item.title === title && (item.questions === file || item.answers === file));
-  dialogSubject.textContent = topic ? `${subjectNames[topic.subject]} ${topic.code.split("·")[0].trim()}` : "PDF";
+  dialogSubject.textContent = topic ? `${subjectMeta[topic.subject].name} ${topic.code.split('·')[0].trim()}` : 'PDF';
   pdfFrame.src = `${file}#view=FitH`;
   dialogDownload.href = file;
-  dialogDownload.download = file.split("/").pop();
+  dialogDownload.download = file.split('/').pop();
   pdfDialog.showModal();
-  localStorage.setItem("igcse-last-opened", JSON.stringify({ file, title, kind }));
+  localStorage.setItem('igcse-last-opened', JSON.stringify({ file, title, kind }));
 }
 
-document.querySelectorAll(".subject-tab").forEach(button => {
-  button.addEventListener("click", () => {
-    activeSubject = button.dataset.subject;
-    document.querySelectorAll(".subject-tab").forEach(tab => {
-      tab.classList.toggle("active", tab === button);
-      tab.setAttribute("aria-selected", tab === button ? "true" : "false");
-    });
-    renderTopics();
+function setActiveFilter(subject) {
+  activeSubject = subject;
+  filterButtons.forEach(button => {
+    const active = button.dataset.subject === subject;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', active ? 'true' : 'false');
   });
+  renderTopics();
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => setActiveFilter(button.dataset.subject));
 });
 
-searchInput.addEventListener("input", renderTopics);
+searchInput.addEventListener('input', renderTopics);
 
-topicGrid.addEventListener("click", event => {
-  const openButton = event.target.closest(".open-pdf");
+subjectOverview.addEventListener('click', (event) => {
+  const jump = event.target.closest('.subject-jump');
+  if (!jump) return;
+  setActiveFilter('all');
+});
+
+jumpLinks.addEventListener('click', (event) => {
+  const jump = event.target.closest('.subject-jump');
+  if (!jump) return;
+  setActiveFilter('all');
+});
+
+subjectSections.addEventListener('click', (event) => {
+  const openButton = event.target.closest('.open-pdf');
   if (openButton) {
     openPdf(openButton.dataset.file, openButton.dataset.title, openButton.dataset.kind);
     return;
   }
-  const completeButton = event.target.closest("[data-complete]");
+
+  const completeButton = event.target.closest('[data-complete]');
   if (completeButton) {
     const completed = getCompleted();
     if (completed.has(completeButton.dataset.complete)) completed.delete(completeButton.dataset.complete);
@@ -154,48 +285,42 @@ topicGrid.addEventListener("click", event => {
     renderTopics();
     return;
   }
-  const toggle = event.target.closest(".subtopics-toggle");
+
+  const toggle = event.target.closest('.subtopics-toggle');
   if (toggle) {
-    const card = toggle.closest(".topic-card");
-    const extras = card.querySelectorAll(".extra-subtopic");
+    const card = toggle.closest('.topic-card');
+    const extras = card.querySelectorAll('.extra-subtopic');
     const opening = extras[0]?.hidden;
-    extras.forEach(item => item.hidden = !opening);
-    toggle.textContent = opening ? "Show fewer subtopics" : `+ ${toggle.dataset.more} more subtopics`;
+    extras.forEach(item => { item.hidden = !opening; });
+    toggle.textContent = opening ? 'Show fewer subtopics' : `+ ${toggle.dataset.more} more subtopic${toggle.dataset.more === '1' ? '' : 's'}`;
   }
 });
 
-document.querySelector("#dialogClose").addEventListener("click", () => pdfDialog.close());
-pdfDialog.addEventListener("close", () => { pdfFrame.src = "about:blank"; });
-pdfDialog.addEventListener("click", event => {
+document.querySelector('#dialogClose').addEventListener('click', () => pdfDialog.close());
+pdfDialog.addEventListener('close', () => { pdfFrame.src = 'about:blank'; });
+pdfDialog.addEventListener('click', (event) => {
   const box = pdfDialog.getBoundingClientRect();
   const outside = event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom;
   if (outside) pdfDialog.close();
 });
 
-document.querySelector("#continueButton").addEventListener("click", () => {
+continueButton.addEventListener('click', () => {
   try {
-    const last = JSON.parse(localStorage.getItem("igcse-last-opened") || "null");
+    const last = JSON.parse(localStorage.getItem('igcse-last-opened') || 'null');
     if (last) openPdf(last.file, last.title, last.kind);
-    else document.querySelector("#library").scrollIntoView({ behavior: "smooth" });
-  } catch { document.querySelector("#library").scrollIntoView({ behavior: "smooth" }); }
+    else document.querySelector('#subjects').scrollIntoView({ behavior: 'smooth' });
+  } catch {
+    document.querySelector('#subjects').scrollIntoView({ behavior: 'smooth' });
+  }
 });
 
-document.addEventListener("keydown", event => {
-  if (event.key === "/" && document.activeElement !== searchInput) {
+document.addEventListener('keydown', (event) => {
+  if (event.key === '/' && document.activeElement !== searchInput) {
     event.preventDefault();
     searchInput.focus();
   }
 });
 
-const themeToggle = document.querySelector("#themeToggle");
-const savedTheme = localStorage.getItem("igcse-theme");
-if (savedTheme === "dark") document.body.classList.add("dark");
-themeToggle.querySelector(".theme-icon").textContent = document.body.classList.contains("dark") ? "☀" : "☾";
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  const dark = document.body.classList.contains("dark");
-  localStorage.setItem("igcse-theme", dark ? "dark" : "light");
-  themeToggle.querySelector(".theme-icon").textContent = dark ? "☀" : "☾";
-});
-
+renderOverview();
 renderTopics();
+updateProgress();
