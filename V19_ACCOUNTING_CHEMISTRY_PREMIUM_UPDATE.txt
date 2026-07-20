@@ -1,5 +1,0 @@
-V19 UPDATE
-
-Accounting: all five answer booklets rebuilt with true table layouts for ledgers, financial statements, comparisons and calculations.
-Chemistry: all twelve answer booklets rebuilt with a premium part-by-part mark-scheme table layout.
-All other website files remain unchanged from V18.
