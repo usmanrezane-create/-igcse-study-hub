@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#050914">
   <meta name="description" content="Topical IGCSE past papers covering every available syllabus topic from the last 5 years.">
   <title>Topical IGCSE Past Papers</title>
-  <link rel="stylesheet" href="styles.css?v=14">
-  <link rel="stylesheet" href="v12.css?v=14">
+  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="stylesheet" href="v12.css?v=15">
+  <link rel="stylesheet" href="v15.css?v=15">
 </head>
 <body>
   <aside class="sidebar">
@@ -115,12 +116,14 @@
       </div>
 
       <div id="postPaymentSignIn" hidden>
-        <div class="success">Payment received. Sign in now to connect the 30-day access to your account.</div>
+        <div class="success">Payment ID saved. Sign in to verify it and activate your access.</div>
         <button id="googleSignIn" class="google" type="button">G&nbsp;&nbsp; Sign in after payment</button>
+        <button id="resetPaymentBeforeSignIn" class="payment-reset" type="button">Wrong ID or not paid? Go back to payment</button>
       </div>
       <div id="activatingPremium" hidden>
         <div class="success">You are signed in.</div>
         <p id="activationMessage" class="payment-message"></p>
+        <button id="resetPaymentAfterError" class="payment-reset" type="button">Clear this ID, sign out and start again</button>
       </div>
       <div id="premiumActive" hidden>
         <div class="success">Premium access is active.</div>
@@ -131,7 +134,8 @@
   <div id="toast" class="toast" hidden></div>
   <script src="app-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7"></script>
-  <script src="app.js?v=14"></script>
-  <script src="v12-ui.js?v=14"></script>
+  <script src="app.js?v=15"></script>
+  <script src="v12-ui.js?v=15"></script>
+  <script src="v15-payment-reset.js?v=15"></script>
 </body>
 </html>
