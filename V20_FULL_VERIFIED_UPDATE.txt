@@ -1,0 +1,6 @@
+V20 FULL VERIFIED REPLACEMENT
+
+Use this package as a complete repository replacement, not as a merge.
+Accounting and Chemistry answer upgrades are included inside assets/accounting and assets/chemistry.
+No subject, payment, login, Supabase, CSS or JavaScript file required by the website has been omitted.
+See BUILD_VALIDATION.txt and SETUP_30_DAY_PAYMENT.txt.

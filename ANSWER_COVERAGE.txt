@@ -1,0 +1,34 @@
+ANSWER COVERAGE IN THIS PACKAGE
+
+Mathematics 0580:
+- Complete question and answer PDFs are included for every listed Mathematics topic.
+
+Chemistry 0620:
+- Complete question and answer PDFs are included for all 12 listed Chemistry topics.
+
+Physics 0625:
+- Complete topical question banks and matching answer guides are included for all 6 Physics topics.
+- Each Physics topic card now has separate Open questions and Mark scheme buttons.
+
+Accounting 0452:
+- Matching answer guides are included for Topics 02-06, covering every Accounting topic that contains indexed questions.
+- Topics 01 and 07 remain unchanged because the supplied topical banks contain 0 questions for those sections.
+- Each Accounting topic with questions now has separate Open questions and Mark scheme buttons.
+
+ANSWER-GUIDE NOTE:
+- The added Physics and Accounting PDFs are independently condensed answer guides aligned to the topical banks.
+- They are not reproduced Cambridge mark-scheme documents.
+
+PDF OPENING:
+- Every available question or answer PDF opens fully in a separate browser tab.
+
+PAYMENT AND ACCESS:
+- The website still uses only the US$20 one-time PayPal link for 30 days of Premium.
+- Verified 30-day access expires automatically and must be renewed with another payment.
+- Chemistry remains free. Mathematics, Physics and Accounting remain Premium.
+
+FINAL WEBSITE FLOW
+- All Subjects remains the main home dashboard and shows Mathematics, Physics, Chemistry and Accounting immediately.
+- The website still uses only the one-time US$20 PayPal payment link NB4QAJS7YDT9Q.
+- Customers pay first, then sign in and receive 30 days of full access after secure verification.
+- Every question paper and supplied answer guide opens in a new browser tab.

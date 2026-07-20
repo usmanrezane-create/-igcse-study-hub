@@ -1,0 +1,21 @@
+UPLOAD THIS BUILD TO GITHUB PAGES
+
+1. Unzip this file on your computer.
+2. Open the GitHub repository TOPICAL-PAST-PAPERS.
+3. Delete the old published website files from the repository root, but do not delete the repository itself.
+4. Upload ALL items from inside this ZIP:
+   - index.html
+   - styles.css
+   - app.js
+   - app-config.js
+   - .nojekyll
+   - the complete assets folder
+   - the supabase folder and setup text files may also stay in the repository
+5. Commit the changes to the branch used by GitHub Pages.
+6. Wait a few minutes, then open:
+   https://topicalpastpapersigcse.github.io/TOPICAL-PAST-PAPERS/
+7. Hard refresh with Ctrl+Shift+R.
+8. Confirm the first page immediately shows all four subject cards.
+9. Open an Incognito window and test the payment flow.
+
+Do not upload a folder that contains another copy of the website folder. index.html must be at the repository root.

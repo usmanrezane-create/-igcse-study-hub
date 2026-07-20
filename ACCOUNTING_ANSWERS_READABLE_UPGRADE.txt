@@ -1,0 +1,8 @@
+ACCOUNTING ANSWERS - PREMIUM READABLE UPGRADE (V18)
+
+The Accounting answer PDFs for Topics 02-06 were replaced with large-format readable editions.
+Each answer is separated into enlarged landscape pages so ledgers, calculations, ratios and financial statements are easier to read.
+
+All other website files, subjects, payment flow and Supabase configuration remain unchanged from V17.
+
+Important: these are independently written study answers, not reproduced official Cambridge mark-scheme pages.

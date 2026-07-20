@@ -1,0 +1,4 @@
+/* V15 — recovery controls for mistaken transaction IDs */
+.payment-reset{width:100%;min-height:44px;margin-top:10px;border-radius:11px;background:#0b1629;color:#b9c7df;border:1px solid #2b4268;font-weight:800}
+.payment-reset:hover{color:#fff;border-color:#4b6ba1;background:#10213d}
+#activatingPremium .payment-reset{margin-top:14px}

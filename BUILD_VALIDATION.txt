@@ -1,0 +1,23 @@
+BUILD: V20 full verified replacement
+
+VALIDATED CONTENT
+- Complete root-level static website included.
+- Mathematics, Physics, Chemistry and Accounting assets included.
+- 69 PDF files included and readable.
+- 6 Physics answer PDFs linked to the 6 Physics topic cards.
+- 5 Accounting premium table-answer PDFs linked to Topics 02–06.
+- 12 Chemistry premium answer PDFs linked to all 12 Chemistry topic cards.
+- Existing Mathematics question/answer links retained.
+- Existing dark design, dashboard, one-time PayPal flow and Supabase setup retained.
+- PayPal link, price and 30-day access configuration are present.
+- Supabase migration and claim-paypal-payment Edge Function are included.
+- Browser cache query values updated to v20.
+- No Git conflict markers are present.
+- No Unicode replacement characters or null bytes are present in website text/code files.
+- JavaScript syntax checks passed.
+- Every local website reference resolves to an included file.
+- Every included PDF passed parsing checks.
+- ZIP integrity check passed.
+
+EXTERNAL REQUIREMENT
+PayPal Auto Return/PDT and the Supabase migration, Edge Function and secrets must be configured in the connected accounts as described in SETUP_30_DAY_PAYMENT.txt. These external account settings cannot be embedded safely in a public ZIP.

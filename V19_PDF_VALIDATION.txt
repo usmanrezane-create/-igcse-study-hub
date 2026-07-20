@@ -1,0 +1,17 @@
+assets/accounting/accounting-02-sources-recording-answers.pdf | pages=47 | bytes=147662
+assets/accounting/accounting-03-verification-records-answers.pdf | pages=39 | bytes=127977
+assets/accounting/accounting-04-procedures-answers.pdf | pages=39 | bytes=126508
+assets/accounting/accounting-05-financial-statements-answers.pdf | pages=152 | bytes=385746
+assets/accounting/accounting-06-analysis-interpretation-answers.pdf | pages=20 | bytes=81519
+assets/chemistry/chemistry-01-states-of-matter-answers.pdf | pages=8 | bytes=58480
+assets/chemistry/chemistry-02-atoms-elements-compounds-answers.pdf | pages=56 | bytes=166346
+assets/chemistry/chemistry-03-stoichiometry-answers.pdf | pages=19 | bytes=88196
+assets/chemistry/chemistry-04-electrochemistry-answers.pdf | pages=20 | bytes=90110
+assets/chemistry/chemistry-05-chemical-energetics-answers.pdf | pages=6 | bytes=56253
+assets/chemistry/chemistry-06-chemical-reactions-answers.pdf | pages=20 | bytes=91000
+assets/chemistry/chemistry-07-acids-bases-salts-answers.pdf | pages=26 | bytes=103199
+assets/chemistry/chemistry-08-periodic-table-answers.pdf | pages=12 | bytes=71148
+assets/chemistry/chemistry-09-metals-answers.pdf | pages=25 | bytes=101538
+assets/chemistry/chemistry-10-environment-answers.pdf | pages=22 | bytes=94549
+assets/chemistry/chemistry-11-organic-chemistry-answers.pdf | pages=65 | bytes=194455
+assets/chemistry/chemistry-12-experimental-analysis-answers.pdf | pages=4 | bytes=49698

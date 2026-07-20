@@ -1,0 +1,30 @@
+FRESH REPLACEMENT UPLOAD — NO MERGE REQUIRED
+
+1. Close GitHub Desktop and Visual Studio Code first.
+2. Unzip this V17 file into a NEW empty folder.
+3. In your GitHub repository, remove the old website files from the repository root.
+4. Upload EVERY item from INSIDE the unzipped V17 folder.
+5. Make sure index.html is at the repository root, not inside an extra V17 folder.
+6. Keep the complete assets folder, supabase folder and .nojekyll file.
+7. Commit the replacement and wait for GitHub Pages to publish.
+8. Open the website in a private/incognito browser window to check the fresh version.
+
+EXPECTED ROOT ITEMS
+- index.html
+- app.js
+- app-config.js
+- styles.css
+- v12.css
+- v12-ui.js
+- v15.css
+- v15-payment-reset.js
+- .nojekyll
+- assets/
+- supabase/
+- setup and validation text files
+
+DO NOT
+- Do not upload only the ZIP file to the website repository.
+- Do not select "Pull origin" before replacing the files.
+- Do not merge the old v12.css with the V17 v12.css.
+- Do not omit the assets folder.
