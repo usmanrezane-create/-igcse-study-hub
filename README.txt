@@ -1,4 +1,4 @@
-TOPICAL IGCSE STUDY HUB — V17 FULL CLEAN REPLACEMENT
+TOPICAL IGCSE STUDY HUB — V18 FULL CLEAN REPLACEMENT
 
 THIS IS A COMPLETE FRESH WEBSITE COPY
 - Upload the CONTENTS of this folder/ZIP to the repository root.
@@ -23,3 +23,5 @@ IMPORTANT
 - The Physics and Accounting answer files are independent answer guides aligned to the topical banks; they are not reproduced official Cambridge mark-scheme publications.
 
 See FRESH_REPLACEMENT_UPLOAD.txt for the safest upload method.
+
+V18 upgrade: Accounting Topics 02-06 now use premium readable large-format answer PDFs.
