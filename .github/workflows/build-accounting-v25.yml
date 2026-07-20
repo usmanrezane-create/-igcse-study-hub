@@ -1,0 +1,35 @@
+name: Publish Accounting V25 fix
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - tools/build_accounting_v25.py
+      - .github/workflows/build-accounting-v25.yml
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pymupdf
+      - run: python tools/build_accounting_v25.py
+      - name: Commit generated website files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "Publish proper Accounting Dr Cr booklets and payment wording"
+            git push
+          fi
