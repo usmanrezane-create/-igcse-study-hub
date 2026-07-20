@@ -42,9 +42,12 @@ main{padding:18px 24px 52px}
 .device-access-note strong{color:#fff}
 .device-access-note small{display:block;margin-top:7px;color:#8291ad;font-size:9px;line-height:1.45}
 @media(max-width:560px){.device-access-note{padding:12px;gap:9px}.device-access-icon{width:30px;height:30px}.device-access-note b{font-size:12px}}
+<<<<<<< HEAD
 
 
 /* V15 — escape route for wrong or fake transaction IDs */
 .payment-reset{width:100%;min-height:44px;margin-top:10px;border-radius:11px;background:#0b1629;color:#b9c7df;border:1px solid #2b4268;font-weight:800}
 .payment-reset:hover{color:#fff;border-color:#4b6ba1;background:#10213d}
 #activatingPremium .payment-reset{margin-top:14px}
+=======
+>>>>>>> d65e25aca1808c7cafcd485ef8d9ddcacd117f97
