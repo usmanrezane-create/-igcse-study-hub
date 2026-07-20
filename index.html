@@ -3,223 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Premium IGCSE topical past-paper dashboard covering every syllabus topic with questions from the last 5 years.">
-  <meta name="theme-color" content="#050a16">
+  <meta name="description" content="IGCSE topical past papers covering every syllabus topic with questions from the last 5 years.">
+  <meta name="theme-color" content="#071426">
   <title>Usman's Topical IGCSE Study Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#subjects">Skip to subjects</a>
 
-  <div class="page-shell">
-    <div class="ambient ambient-a"></div>
-    <div class="ambient ambient-b"></div>
-    <div class="ambient ambient-c"></div>
+  <aside class="app-sidebar">
+    <a class="sidebar-brand" href="#dashboard" aria-label="Study Hub home">
+      <span class="sidebar-logo">◆</span>
+      <span><strong>IGCSE</strong><b>Study Hub</b></span>
+    </a>
 
-    <header class="site-header" id="top">
-      <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="Study Hub home">
-          <span class="brand-mark">U</span>
-          <span class="brand-copy">
-            <strong>Usman's Study Hub</strong>
-            <small>TOPICAL IGCSE PREMIUM PORTAL</small>
-          </span>
-        </a>
+    <nav class="sidebar-nav" aria-label="Dashboard navigation">
+      <a class="active" href="#dashboard"><span>⌂</span>Dashboard</a>
+      <a href="#subjects"><span>◉</span>All Subjects</a>
+      <a href="#revision-zone"><span>▤</span>Topical Past Papers</a>
+      <a href="#progress"><span>↗</span>Progress Tracker</a>
+      <a href="#revision-zone"><span>☆</span>Bookmarks</a>
+      <a href="#revision-zone"><span>⇩</span>Downloads</a>
+    </nav>
 
-        <nav class="main-nav" aria-label="Primary navigation">
-          <a href="#subjects">Subjects</a>
-          <a href="#revision-zone">Topic library</a>
-          <a href="#method">Study method</a>
-        </nav>
+    <div class="sidebar-label">MY SUBJECTS</div>
+    <nav class="subject-mini-nav" aria-label="Available subjects">
+      <a href="#section-maths"><i class="maths">#</i><span>0580 Mathematics</span></a>
+      <a href="#section-physics"><i class="physics">⚛</i><span>0625 Physics</span></a>
+      <a href="#section-chemistry"><i class="chemistry">⌬</i><span>0620 Chemistry</span></a>
+      <a href="#section-accounting"><i class="accounting">§</i><span>0452 Accounting</span></a>
+    </nav>
 
-        <div class="nav-actions">
-          <button class="account-button" id="accountButton" type="button" hidden>
-            <span class="account-dot" aria-hidden="true"></span>
-            <span id="accountButtonText">Premium account</span>
-          </button>
-          <button class="button nav-premium-button" id="navPremiumButton" type="button">Unlock Premium</button>
-        </div>
+    <div class="sidebar-premium">
+      <strong>♛ Go Premium</strong>
+      <p>Unlock all topical papers, mark schemes and premium subjects.</p>
+      <button class="button" id="navPremiumButton" type="button">Upgrade Now →</button>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="topbar">
+      <button class="subject-selector" type="button">
+        <span><strong>IGCSE Study Hub</strong><small>Topical Past Papers</small></span>
+        <b>⌄</b>
+      </button>
+      <label class="top-search" for="searchInput"><span>⌕</span><input id="searchInput" type="search" placeholder="Search topics, questions, past papers..." autocomplete="off"><kbd>Ctrl /</kbd></label>
+      <div class="topbar-actions">
+        <span class="sun">☼</span><span class="bell">♧<b>3</b></span>
+        <button class="account-button" id="accountButton" type="button" hidden><span class="account-dot"></span><span id="accountButtonText">Premium</span></button>
+        <button class="avatar-button" id="heroPremiumButton" type="button">U</button>
       </div>
     </header>
 
-    <main>
-      <section class="hero-section" id="overview">
-        <div class="container hero-grid">
-          <div class="hero-copy panel-shell">
-            <div class="eyebrow">CAMBRIDGE IGCSE • TOPICAL REVISION</div>
-            <div class="hero-kicker">COMPLETE TOPICAL PAST-PAPER PLATFORM</div>
-            <h1>Practise every syllabus topic in one <span>premium study dashboard.</span></h1>
-            <p>
-              Every topic in the syllabus has topical questions selected from the last 5 years. Open question papers and mark schemes in a separate full-screen browser tab for focused revision.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button button-primary" href="#subjects">Browse all subjects</a>
-              <a class="button button-secondary" href="#section-chemistry">Explore topical papers</a>
-              <button class="button button-secondary premium-glow" id="heroPremiumButton" type="button">Unlock full access</button>
-              <button class="button button-secondary" id="continueButton" type="button">Continue studying</button>
-            </div>
-
-            <div class="hero-highlights">
-              <div class="highlight-card">
-                <span class="highlight-label">TOPIC PACKS</span>
-                <strong>35</strong>
-                <small>syllabus topic packs</small>
-              </div>
-              <div class="highlight-card">
-                <span class="highlight-label">QUESTIONS</span>
-                <strong>1,492</strong>
-                <small>from the last 5 years</small>
-              </div>
-              <div class="highlight-card">
-                <span class="highlight-label">ANSWER BOOKLETS</span>
-                <strong>22</strong>
-                <small>open in a new tab</small>
+    <main id="dashboard">
+      <section class="dashboard-grid">
+        <div class="dashboard-center">
+          <section class="subject-hero">
+            <div class="hero-text">
+              <span class="hero-code">0580</span>
+              <h1>Mathematics<br><em>(Extended)</em></h1>
+              <strong>Topical Past Papers &amp; Questions</strong>
+              <p>Every topic in the syllabus has topical questions from the last 5 years.</p>
+              <div class="hero-actions">
+                <a class="button primary" href="#revision-zone">▶ Start Practising</a>
+                <a class="button outline" href="#subjects">▤ All Subjects</a>
               </div>
             </div>
+            <img src="assets/dashboard-preview.png" alt="IGCSE mathematics topical past-paper dashboard preview">
+          </section>
 
-            <div class="trust-strip">
-              <span>Complete syllabus coverage</span>
-              <span>Topical questions</span>
-              <span>Last 5 years</span>
-              <span>Full-screen PDF tabs</span>
-            </div>
-          </div>
+          <section class="subject-tabs" id="subjects">
+            <button class="active" type="button" data-scroll-subject="all">All Subjects</button>
+            <button type="button" data-scroll-subject="maths">Mathematics</button>
+            <button type="button" data-scroll-subject="physics">Physics</button>
+            <button type="button" data-scroll-subject="chemistry">Chemistry</button>
+            <button type="button" data-scroll-subject="accounting">Accounting</button>
+            <button type="button">By Year⌄</button>
+          </section>
 
-          <aside class="hero-panel panel-shell dashboard-visual" aria-label="Study dashboard preview">
-            <div class="panel-topline">YOUR STUDY DASHBOARD</div>
-            <div class="dashboard-image-wrap">
-              <img src="assets/dashboard-preview.png" alt="Preview of the IGCSE topical past papers dashboard">
-              <div class="dashboard-image-shade"></div>
-              <div class="dashboard-floating-card">
-                <span>SYLLABUS COVERAGE</span>
-                <strong>Every topic included</strong>
-                <small>Topical questions from the last 5 years</small>
-              </div>
+          <section class="subject-summary" id="subjectOverview"></section>
+
+          <section class="library-card" id="revision-zone">
+            <div class="library-heading">
+              <div><span>TOPICAL PAPER LIBRARY</span><h2>Choose a subject and topic</h2><p>All syllabus topics include topical questions from the last 5 years.</p></div>
+              <button class="filter-button" type="button">☷ Filters</button>
             </div>
-            <div class="dashboard-mini-stats">
-              <article><span>Subjects</span><strong>4</strong></article>
-              <article><span>Topic packs</span><strong>35</strong></article>
-              <article><span>PDF viewing</span><strong>New tab</strong></article>
+            <div class="filter-pills" role="tablist" aria-label="Filter subjects">
+              <button class="filter-pill active" type="button" data-subject="all" aria-selected="true">All subjects</button>
+              <button class="filter-pill" type="button" data-subject="chemistry" aria-selected="false">Chemistry · Free</button>
+              <button class="filter-pill" type="button" data-subject="maths" aria-selected="false">Maths · Premium</button>
+              <button class="filter-pill" type="button" data-subject="physics" aria-selected="false">Physics · Premium</button>
+              <button class="filter-pill" type="button" data-subject="accounting" aria-selected="false">Accounting · Premium</button>
             </div>
-          </aside>
+            <div class="results-strip"><div><strong id="resultCount">35 topics</strong><span id="activeFilterLabel">across all four subjects</span></div><div class="jump-links" id="jumpLinks"></div></div>
+            <div class="subject-sections" id="subjectSections"></div>
+            <div class="empty-state" id="emptyState" hidden><div>⌕</div><h3>No matching topic found</h3><p>Try a broader topic name.</p></div>
+          </section>
         </div>
-      </section>
 
-      <section class="portal-strip">
-        <div class="container portal-strip-grid">
-          <article class="strip-card">
-            <span>01 · LEARN</span>
-            <strong>Choose one weak topic</strong>
-            <small>Stop searching through full papers and practise the exact area you need.</small>
-          </article>
-          <article class="strip-card">
-            <span>02 · ATTEMPT</span>
-            <strong>Work under exam conditions</strong>
-            <small>Show every step and answer before opening the matching answer booklet.</small>
-          </article>
-          <article class="strip-card">
-            <span>03 · IMPROVE</span>
-            <strong>Correct, record and repeat</strong>
-            <small>Mark topics complete and return to the questions that cost you marks.</small>
-          </article>
-        </div>
-      </section>
-
-      <section class="subject-showcase" id="subjects">
-        <div class="container">
-          <div class="section-heading dual">
-            <div>
-              <div class="eyebrow">CHOOSE A SUBJECT</div>
-              <h2>Complete topical coverage for every available subject.</h2>
-              <p>Every topic in each subject syllabus has topical questions from the last 5 years. Premium resources unlock only after subscription payment.</p>
+        <aside class="dashboard-right" id="progress">
+          <section class="right-card progress-card">
+            <div class="right-title"><strong>Your Progress</strong><a href="#revision-zone">View All →</a></div>
+            <div class="progress-overview">
+              <div class="progress-ring" id="progressCircle"><span id="progressPercent">0%</span></div>
+              <div class="progress-numbers"><div><span>Questions available</span><strong>1,492</strong></div><div><span>Topics completed</span><strong id="panelProgressPercent">0%</strong></div></div>
             </div>
-            <div class="progress-panel">
-              <span class="status-light"></span>
-              <div><strong>Complete syllabus coverage</strong><small>Questions and mark schemes open full-screen in a new tab.</small></div>
-            </div>
-          </div>
-          <div class="subject-overview-grid" id="subjectOverview"></div>
-        </div>
-      </section>
-
-      <section class="premium-cta-section" id="premium">
-        <div class="container premium-cta-card">
-          <div>
-            <div class="eyebrow">PAYPAL SUBSCRIPTION</div>
-            <h2>Unlock the complete topical past-paper library.</h2>
-            <p>Choose Premium first, then sign in during checkout and complete payment securely with PayPal. There is no normal sign-in for unpaid visitors.</p>
-          </div>
-          <div class="premium-cta-points">
-            <span>✓ Every syllabus topic has topical questions</span>
-            <span>✓ Questions selected from the last 5 years</span>
-            <span>✓ Question papers and mark schemes open in new tabs</span>
-          </div>
-          <button class="button button-primary" id="sectionPremiumButton" type="button">Start Premium securely</button>
-        </div>
-      </section>
-
-      <section class="revision-zone" id="revision-zone">
-        <div class="container">
-          <div class="toolbar panel-shell">
-            <div class="toolbar-copy">
-              <div class="eyebrow">TOPICAL PAPER LIBRARY</div>
-              <h2>Choose a subject, topic and paper.</h2>
-              <p>All syllabus topics are organised clearly with questions from the last 5 years.</p>
-            </div>
-            <div class="toolbar-controls">
-              <div class="filter-pills" role="tablist" aria-label="Filter subjects">
-                <button class="filter-pill active" type="button" data-subject="all" aria-selected="true">All subjects</button>
-                <button class="filter-pill" type="button" data-subject="chemistry" aria-selected="false">Chemistry · Free</button>
-                <button class="filter-pill" type="button" data-subject="maths" aria-selected="false">Maths · Premium</button>
-                <button class="filter-pill" type="button" data-subject="physics" aria-selected="false">Physics · Premium</button>
-                <button class="filter-pill" type="button" data-subject="accounting" aria-selected="false">Accounting · Premium</button>
-              </div>
-              <label class="search-box" for="searchInput">
-                <span class="search-icon" aria-hidden="true">⌕</span>
-                <input id="searchInput" type="search" placeholder="Search topics or subtopics…" autocomplete="off">
-                <kbd>/</kbd>
-              </label>
-            </div>
-          </div>
-
-          <div class="results-strip">
-            <div><strong id="resultCount">35 topics</strong><span id="activeFilterLabel">across all four subjects</span></div>
-            <div class="jump-links" id="jumpLinks"></div>
-          </div>
-
-          <div class="subject-sections" id="subjectSections"></div>
-
-          <div class="empty-state" id="emptyState" hidden>
-            <div class="empty-icon">⌕</div>
-            <h3>No matching topic found</h3>
-            <p>Try a broader search such as vectors, electrolysis, momentum or depreciation.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="method-section" id="method">
-        <div class="container">
-          <div class="section-heading center">
-            <div class="eyebrow">THE REVISION ROUTINE</div>
-            <h2>Attempt. Check. Fix. Repeat.</h2>
-            <p>Use the same three-step system for every topic.</p>
-          </div>
-          <div class="routine-grid">
-            <article class="routine-card"><b>01</b><h3>Attempt the questions</h3><p>Work without notes, show full working and use a sensible time limit.</p></article>
-            <article class="routine-card"><b>02</b><h3>Open the mark scheme</h3><p>Use the Mark Scheme button to open the supplied answers in a separate full-screen tab.</p></article>
-            <article class="routine-card"><b>03</b><h3>Record weak points</h3><p>Correct the exact mistake and mark the topic complete only after you understand it.</p></article>
-          </div>
-        </div>
+            <p id="progressLabel">0 of 35 topics completed</p>
+          </section>
+          <section class="right-card compact-stat"><div><strong>Past Papers Available</strong><b>35</b></div><span>Topical packs across all subjects</span></section>
+          <section class="right-card streak-card"><strong>Current Streak 🔥</strong><b>Start today</b><div class="week"><span class="done">M</span><span class="done">T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div></section>
+          <section class="right-card recent-card"><div class="right-title"><strong>Available Subjects</strong><a href="#subjects">View All →</a></div><div class="recent-row blue"><span>0580 Mathematics<small>Extended</small></span><b>Premium</b></div><div class="recent-row green"><span>0620 Chemistry<small>Complete syllabus</small></span><b>Free</b></div><div class="recent-row purple"><span>0625 Physics<small>Complete syllabus</small></span><b>Premium</b></div><div class="recent-row orange"><span>0452 Accounting<small>Complete syllabus</small></span><b>Premium</b></div></section>
+          <section class="right-card quick-card"><strong>Quick Access</strong><div><a href="#revision-zone">▤<small>All Papers</small></a><a href="#revision-zone">▣<small>By Subject</small></a><a href="#revision-zone">◎<small>Hard Topics</small></a><a href="#revision-zone">☆<small>Saved</small></a></div></section>
+          <button class="full-premium" id="sectionPremiumButton" type="button">Start Premium Securely</button>
+          <button class="hidden-trigger" id="continueButton" type="button">Continue studying</button>
+        </aside>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-wrap panel-shell">
-        <div><strong>USMAN'S TOPICAL IGCSE STUDY HUB</strong><span>Mathematics 0580 · Physics 0625 · Chemistry 0620 · Accounting 0452</span></div>
-        <p>Every syllabus topic includes topical questions from the last 5 years. Premium access is activated after payment.</p>
-      </div>
-    </footer>
+    <footer class="site-footer"><p>Usman's Topical IGCSE Study Hub · Every syllabus topic includes topical questions from the last 5 years.</p></footer>
   </div>
 
   <dialog class="account-dialog" id="accountDialog">

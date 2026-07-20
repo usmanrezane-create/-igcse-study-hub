@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Premium IGCSE topical past-paper dashboard covering every syllabus topic with questions from the last 5 years.">
+  <meta name="theme-color" content="#050a16">
+  <title>Usman's Topical IGCSE Study Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#subjects">Skip to subjects</a>
+
+  <div class="page-shell">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="ambient ambient-c"></div>
+
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="Study Hub home">
+          <span class="brand-mark">U</span>
+          <span class="brand-copy">
+            <strong>Usman's Study Hub</strong>
+            <small>TOPICAL IGCSE PREMIUM PORTAL</small>
+          </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#subjects">Subjects</a>
+          <a href="#revision-zone">Topic library</a>
+          <a href="#method">Study method</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="account-button" id="accountButton" type="button" hidden>
+            <span class="account-dot" aria-hidden="true"></span>
+            <span id="accountButtonText">Premium account</span>
+          </button>
+          <button class="button nav-premium-button" id="navPremiumButton" type="button">Unlock Premium</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section" id="overview">
+        <div class="container hero-grid">
+          <div class="hero-copy panel-shell">
+            <div class="eyebrow">CAMBRIDGE IGCSE • TOPICAL REVISION</div>
+            <div class="hero-kicker">COMPLETE TOPICAL PAST-PAPER PLATFORM</div>
+            <h1>Practise every syllabus topic in one <span>premium study dashboard.</span></h1>
+            <p>
+              Every topic in the syllabus has topical questions selected from the last 5 years. Open question papers and mark schemes in a separate full-screen browser tab for focused revision.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#subjects">Browse all subjects</a>
+              <a class="button button-secondary" href="#section-chemistry">Explore topical papers</a>
+              <button class="button button-secondary premium-glow" id="heroPremiumButton" type="button">Unlock full access</button>
+              <button class="button button-secondary" id="continueButton" type="button">Continue studying</button>
+            </div>
+
+            <div class="hero-highlights">
+              <div class="highlight-card">
+                <span class="highlight-label">TOPIC PACKS</span>
+                <strong>35</strong>
+                <small>syllabus topic packs</small>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-label">QUESTIONS</span>
+                <strong>1,492</strong>
+                <small>from the last 5 years</small>
+              </div>
+              <div class="highlight-card">
+                <span class="highlight-label">ANSWER BOOKLETS</span>
+                <strong>22</strong>
+                <small>open in a new tab</small>
+              </div>
+            </div>
+
+            <div class="trust-strip">
+              <span>Complete syllabus coverage</span>
+              <span>Topical questions</span>
+              <span>Last 5 years</span>
+              <span>Full-screen PDF tabs</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel panel-shell dashboard-visual" aria-label="Study dashboard preview">
+            <div class="panel-topline">YOUR STUDY DASHBOARD</div>
+            <div class="dashboard-image-wrap">
+              <img src="assets/dashboard-preview.png" alt="Preview of the IGCSE topical past papers dashboard">
+              <div class="dashboard-image-shade"></div>
+              <div class="dashboard-floating-card">
+                <span>SYLLABUS COVERAGE</span>
+                <strong>Every topic included</strong>
+                <small>Topical questions from the last 5 years</small>
+              </div>
+            </div>
+            <div class="dashboard-mini-stats">
+              <article><span>Subjects</span><strong>4</strong></article>
+              <article><span>Topic packs</span><strong>35</strong></article>
+              <article><span>PDF viewing</span><strong>New tab</strong></article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="portal-strip">
+        <div class="container portal-strip-grid">
+          <article class="strip-card">
+            <span>01 · LEARN</span>
+            <strong>Choose one weak topic</strong>
+            <small>Stop searching through full papers and practise the exact area you need.</small>
+          </article>
+          <article class="strip-card">
+            <span>02 · ATTEMPT</span>
+            <strong>Work under exam conditions</strong>
+            <small>Show every step and answer before opening the matching answer booklet.</small>
+          </article>
+          <article class="strip-card">
+            <span>03 · IMPROVE</span>
+            <strong>Correct, record and repeat</strong>
+            <small>Mark topics complete and return to the questions that cost you marks.</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="subject-showcase" id="subjects">
+        <div class="container">
+          <div class="section-heading dual">
+            <div>
+              <div class="eyebrow">CHOOSE A SUBJECT</div>
+              <h2>Complete topical coverage for every available subject.</h2>
+              <p>Every topic in each subject syllabus has topical questions from the last 5 years. Premium resources unlock only after subscription payment.</p>
+            </div>
+            <div class="progress-panel">
+              <span class="status-light"></span>
+              <div><strong>Complete syllabus coverage</strong><small>Questions and mark schemes open full-screen in a new tab.</small></div>
+            </div>
+          </div>
+          <div class="subject-overview-grid" id="subjectOverview"></div>
+        </div>
+      </section>
+
+      <section class="premium-cta-section" id="premium">
+        <div class="container premium-cta-card">
+          <div>
+            <div class="eyebrow">PAYPAL SUBSCRIPTION</div>
+            <h2>Unlock the complete topical past-paper library.</h2>
+            <p>Choose Premium first, then sign in during checkout and complete payment securely with PayPal. There is no normal sign-in for unpaid visitors.</p>
+          </div>
+          <div class="premium-cta-points">
+            <span>✓ Every syllabus topic has topical questions</span>
+            <span>✓ Questions selected from the last 5 years</span>
+            <span>✓ Question papers and mark schemes open in new tabs</span>
+          </div>
+          <button class="button button-primary" id="sectionPremiumButton" type="button">Start Premium securely</button>
+        </div>
+      </section>
+
+      <section class="revision-zone" id="revision-zone">
+        <div class="container">
+          <div class="toolbar panel-shell">
+            <div class="toolbar-copy">
+              <div class="eyebrow">TOPICAL PAPER LIBRARY</div>
+              <h2>Choose a subject, topic and paper.</h2>
+              <p>All syllabus topics are organised clearly with questions from the last 5 years.</p>
+            </div>
+            <div class="toolbar-controls">
+              <div class="filter-pills" role="tablist" aria-label="Filter subjects">
+                <button class="filter-pill active" type="button" data-subject="all" aria-selected="true">All subjects</button>
+                <button class="filter-pill" type="button" data-subject="chemistry" aria-selected="false">Chemistry · Free</button>
+                <button class="filter-pill" type="button" data-subject="maths" aria-selected="false">Maths · Premium</button>
+                <button class="filter-pill" type="button" data-subject="physics" aria-selected="false">Physics · Premium</button>
+                <button class="filter-pill" type="button" data-subject="accounting" aria-selected="false">Accounting · Premium</button>
+              </div>
+              <label class="search-box" for="searchInput">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input id="searchInput" type="search" placeholder="Search topics or subtopics…" autocomplete="off">
+                <kbd>/</kbd>
+              </label>
+            </div>
+          </div>
+
+          <div class="results-strip">
+            <div><strong id="resultCount">35 topics</strong><span id="activeFilterLabel">across all four subjects</span></div>
+            <div class="jump-links" id="jumpLinks"></div>
+          </div>
+
+          <div class="subject-sections" id="subjectSections"></div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <div class="empty-icon">⌕</div>
+            <h3>No matching topic found</h3>
+            <p>Try a broader search such as vectors, electrolysis, momentum or depreciation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section" id="method">
+        <div class="container">
+          <div class="section-heading center">
+            <div class="eyebrow">THE REVISION ROUTINE</div>
+            <h2>Attempt. Check. Fix. Repeat.</h2>
+            <p>Use the same three-step system for every topic.</p>
+          </div>
+          <div class="routine-grid">
+            <article class="routine-card"><b>01</b><h3>Attempt the questions</h3><p>Work without notes, show full working and use a sensible time limit.</p></article>
+            <article class="routine-card"><b>02</b><h3>Open the mark scheme</h3><p>Use the Mark Scheme button to open the supplied answers in a separate full-screen tab.</p></article>
+            <article class="routine-card"><b>03</b><h3>Record weak points</h3><p>Correct the exact mistake and mark the topic complete only after you understand it.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap panel-shell">
+        <div><strong>USMAN'S TOPICAL IGCSE STUDY HUB</strong><span>Mathematics 0580 · Physics 0625 · Chemistry 0620 · Accounting 0452</span></div>
+        <p>Every syllabus topic includes topical questions from the last 5 years. Premium access is activated after payment.</p>
+      </div>
+    </footer>
+  </div>
+
+  <dialog class="account-dialog" id="accountDialog">
+    <div class="dialog-shell account-shell">
+      <button class="modal-close" id="accountClose" type="button" aria-label="Close account window">×</button>
+      <div id="signedOutAccount">
+        <div class="dialog-kicker">YOUR ACCOUNT</div>
+        <h2>Sign in with Google</h2>
+        <p>Premium access is connected to your account. The website does not read your Gmail messages.</p>
+        <button class="google-button" id="googleSignInButton" type="button"><span class="google-mark">G</span>Continue securely with Google</button>
+      </div>
+
+      <div id="signedInAccount" hidden>
+        <div class="account-profile">
+          <img id="accountAvatar" alt="" hidden>
+          <div class="avatar-fallback" id="avatarFallback">A</div>
+          <div><strong id="accountName">Account</strong><span id="accountEmail"></span></div>
+        </div>
+        <div class="account-status-card">
+          <span>ACCESS STATUS</span>
+          <strong id="accountStatus">Free account</strong>
+          <p id="accountExpiry">Chemistry is free. Premium subjects require subscription access.</p>
+        </div>
+        <div class="account-actions">
+          <button class="button button-primary" id="accountUpgradeButton" type="button">Get premium</button>
+          <button class="text-button" id="signOutButton" type="button">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="premium-dialog" id="premiumDialog">
+    <div class="dialog-shell premium-shell">
+      <button class="modal-close" id="premiumClose" type="button" aria-label="Close subscription window">×</button>
+      <div class="premium-dialog-head">
+        <div class="premium-icon" aria-hidden="true">P</div>
+        <div>
+          <div class="dialog-kicker">SECURE PREMIUM CHECKOUT</div>
+          <h2>Start your Premium plan</h2>
+          <p>Get complete access to every available subject, topic paper and supplied mark scheme.</p>
+        </div>
+      </div>
+
+      <div class="price-row">
+        <strong>US$20</strong>
+        <span>per month · cancel through PayPal</span>
+      </div>
+
+      <ul class="premium-list">
+        <li>Every topic in each available syllabus</li>
+        <li>Topical questions from the last 5 years</li>
+        <li>Question papers open full-screen in a new tab</li>
+        <li>Supplied mark schemes open in their own tab</li>
+      </ul>
+
+      <div class="payment-state" id="paymentSignedOut">
+        <p>Continue securely with Google to connect the paid subscription to your account. Sign-in is only used during Premium checkout.</p>
+        <button class="google-button" id="premiumGoogleButton" type="button"><span class="google-mark">G</span>Continue securely with Google</button>
+      </div>
+
+      <div class="payment-state" id="paymentActive" hidden>
+        <div class="success-panel">
+          <strong>Premium is active</strong>
+          <p id="premiumActiveText">You already have premium access.</p>
+          <button class="button button-primary" id="continuePremiumButton" type="button">Continue to premium subjects</button>
+        </div>
+      </div>
+
+      <div class="payment-state" id="paymentReady" hidden>
+        <div class="signed-in-line"><span>Subscribing as</span><strong id="paymentUserEmail"></strong></div>
+        <div class="payment-terms">
+          <strong>Secure payment</strong>
+          <p>PayPal handles the payment securely. Your card details are never stored on this website. Premium activates after payment confirmation.</p>
+        </div>
+        <div class="paypal-panel">
+          <div id="paypal-button-container-P-58263651AM188451SNJOJBBQ"></div>
+        </div>
+        <p class="payment-message" id="paymentMessage" aria-live="polite"></p>
+      </div>
+    </div>
+  </dialog>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAATetN_LODrb-EEEaunHB2zNTKqWz-VCNOedyHPVhB5tJ-xca4AsP2EhXEpZqQ6q4_kQf7wZFeByCgEXM&components=buttons&vault=true&intent=subscription&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script src="app.js"></script>
+</body>
+</html>
