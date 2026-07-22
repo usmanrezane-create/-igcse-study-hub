@@ -1,6 +1,6 @@
-// V16 — top study navigation and a clear strip showing the other study tools.
+// V16 — top study navigation only. The extra website-tools strip has been removed.
 (() => {
-  const BUILD = '34';
+  const BUILD = '37';
   const validSubjects = new Set(['maths', 'physics', 'chemistry', 'accounting']);
   const subjectNames = {
     maths: 'Mathematics',
@@ -19,11 +19,16 @@
   const subjectUrl = subject => `index.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
   const topicalUrl = subject => `topical-papers.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
 
+  function removeOldToolsStrip() {
+    document.querySelectorAll('.website-tools-strip').forEach(element => element.remove());
+  }
+
   function addStyles() {
     if (document.getElementById('v16NavigationToolsStyle')) return;
     const style = document.createElement('style');
     style.id = 'v16NavigationToolsStyle';
     style.textContent = `
+      .website-tools-strip{display:none!important}
       .topbar{grid-template-columns:auto auto minmax(240px,1fr) auto!important;gap:20px!important}
       .study-top-nav{display:flex;align-items:center;gap:6px;min-width:max-content;position:relative;z-index:30}
       .study-nav-item{position:relative}
@@ -37,21 +42,11 @@
       .study-nav-menu a:hover,.study-nav-menu button:hover{background:rgba(87,229,193,.10);color:#78f0cf;transform:translateX(2px)}
       .study-nav-menu .menu-emoji{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:rgba(61,105,180,.16);font-size:17px}
       .study-nav-menu b{display:block;font-size:13px}.study-nav-menu small{display:block;margin-top:2px;color:#8294ae;font-size:9px;font-weight:700}
-      .website-tools-strip{position:relative;z-index:1;margin:0 0 18px;padding:17px;border:1px solid rgba(101,145,207,.24);border-radius:17px;background:linear-gradient(145deg,rgba(8,19,36,.96),rgba(7,15,29,.96))}
-      .website-tools-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
-      .website-tools-head div{display:flex;align-items:center;gap:9px}.website-tools-head strong{font-size:15px}.website-tools-head span{font-size:10px;color:#73edca;font-weight:900;letter-spacing:.11em}
-      .website-tools-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-      .website-tool-chip{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:10px;min-height:70px;padding:11px;border:1px solid rgba(106,139,194,.2);border-radius:13px;background:rgba(10,24,44,.72);color:#f4f7ff;text-align:left;transition:.2s ease}
-      .website-tool-chip:hover{transform:translateY(-3px);border-color:rgba(99,239,202,.42);background:rgba(12,33,52,.9);box-shadow:0 14px 28px rgba(0,0,0,.24)}
-      .website-tool-emoji{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(145deg,#173d67,#27256e);font-size:21px}
-      .website-tool-chip b{display:block;font-size:12px}.website-tool-chip small{display:block;margin-top:4px;color:#8295b1;font-size:9px;line-height:1.35}
-      .website-tool-chip[data-status="soon"] small::after{content:" · Coming soon";color:#ffc862}
-      .website-tool-chip[data-status="ready"] small::after{content:" · Available";color:#6ff0c8}
       .website-tool-pulse{animation:websiteToolPulse .65s ease}
       @keyframes websiteToolPulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 0 4px rgba(91,231,194,.18),0 18px 38px rgba(0,0,0,.32)}}
       @media(max-width:1180px){.topbar{grid-template-columns:auto auto minmax(210px,1fr) auto!important;gap:12px!important}.study-nav-trigger{font-size:13px;padding:0 9px}}
-      @media(max-width:980px){.topbar .page-title{display:none!important}.topbar{grid-template-columns:auto auto minmax(200px,1fr) auto!important}.website-tools-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:760px){.topbar{height:auto!important;min-height:78px!important;grid-template-columns:auto minmax(0,1fr) auto!important;padding:10px 14px!important}.study-top-nav{grid-column:1/-1;grid-row:2;width:100%}.study-nav-item{flex:1}.study-nav-trigger{width:100%;justify-content:center}.study-nav-menu{width:min(280px,calc(100vw - 28px))}.study-nav-item:last-child .study-nav-menu{left:auto;right:0}.website-tools-head{align-items:flex-start}.website-tools-list{grid-template-columns:1fr}}
+      @media(max-width:980px){.topbar .page-title{display:none!important}.topbar{grid-template-columns:auto auto minmax(200px,1fr) auto!important}}
+      @media(max-width:760px){.topbar{height:auto!important;min-height:78px!important;grid-template-columns:auto minmax(0,1fr) auto!important;padding:10px 14px!important}.study-top-nav{grid-column:1/-1;grid-row:2;width:100%}.study-nav-item{flex:1}.study-nav-trigger{width:100%;justify-content:center}.study-nav-menu{width:min(280px,calc(100vw - 28px))}.study-nav-item:last-child .study-nav-menu{left:auto;right:0}}
     `;
     document.head.appendChild(style);
   }
@@ -124,51 +119,13 @@
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenus(); });
   }
 
-  function addWebsiteToolsStrip() {
-    const hub = document.querySelector('.final-resource-hub');
-    const topicalButton = hub?.querySelector('.final-topical-button');
-    if (!hub || !topicalButton || hub.querySelector('.website-tools-strip')) return false;
-
-    const strip = document.createElement('section');
-    strip.className = 'website-tools-strip';
-    strip.setAttribute('aria-label', 'More study tools available on this website');
-    strip.innerHTML = `
-      <div class="website-tools-head">
-        <div><span>🌟</span><strong>More study tools on this website</strong></div>
-        <span>EXPLORE MORE</span>
-      </div>
-      <div class="website-tools-list">
-        <button class="website-tool-chip" type="button" data-target-card=".final-notes" data-status="soon"><span class="website-tool-emoji">📘</span><span><b>Revision Notes</b><small>Formulas, diagrams and exam tips</small></span></button>
-        <button class="website-tool-chip" type="button" data-target-card=".final-mocks" data-status="soon"><span class="website-tool-emoji">📝</span><span><b>Mock Papers</b><small>Full timed exam practice</small></span></button>
-        <button class="website-tool-chip" type="button" data-target-card=".final-predicted" data-status="soon"><span class="website-tool-emoji">✨</span><span><b>Predicted Papers</b><small>Focused preparation for 2026</small></span></button>
-        <button class="website-tool-chip" type="button" data-open-progress="true" data-status="ready"><span class="website-tool-emoji">📈</span><span><b>Progress Tracking</b><small>See completed topics and scores</small></span></button>
-      </div>`;
-
-    topicalButton.insertAdjacentElement('afterend', strip);
-
-    strip.addEventListener('click', event => {
-      const chip = event.target.closest('.website-tool-chip');
-      if (!chip) return;
-      if (chip.dataset.openProgress === 'true') {
-        location.href = `index.html?build=${BUILD}#progress`;
-        return;
-      }
-      const card = document.querySelector(chip.dataset.targetCard || '');
-      if (!card) return;
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      card.classList.remove('website-tool-pulse');
-      requestAnimationFrame(() => card.classList.add('website-tool-pulse'));
-    });
-    return true;
-  }
-
   function initialise() {
+    removeOldToolsStrip();
     addStyles();
     addTopNavigation();
-    if (addWebsiteToolsStrip()) return;
     const observer = new MutationObserver(() => {
+      removeOldToolsStrip();
       addTopNavigation();
-      if (addWebsiteToolsStrip()) observer.disconnect();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
     setTimeout(() => observer.disconnect(), 15000);
