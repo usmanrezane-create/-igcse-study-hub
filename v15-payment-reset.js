@@ -135,6 +135,49 @@
   updatePaymentUI();
 })();
 
+// Force every subject to use the same latest shared design build.
+(() => {
+  const BUILD = '33';
+  const validSubjects = new Set(['maths', 'physics', 'chemistry', 'accounting']);
+  const subjectPageUrl = subject => `index.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
+  const topicalPageUrl = subject => `topical-papers.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
+
+  if (typeof subjectUrl === 'function') {
+    subjectUrl = subjectPageUrl;
+    if (typeof renderSideSubjects === 'function') renderSideSubjects();
+    if (typeof renderDashboardSubjects === 'function' && (typeof currentSubject === 'undefined' || !currentSubject)) {
+      renderDashboardSubjects(document.getElementById('globalSearch')?.value || '');
+    }
+  }
+
+  function refreshSubjectLinks() {
+    document.querySelectorAll('a[href*="index.html?subject="]').forEach(link => {
+      const subject = new URL(link.href, location.href).searchParams.get('subject');
+      if (validSubjects.has(subject)) link.href = subjectPageUrl(subject);
+    });
+  }
+
+  refreshSubjectLinks();
+  new MutationObserver(refreshSubjectLinks).observe(document.documentElement, { childList: true, subtree: true });
+
+  document.addEventListener('click', event => {
+    const subjectButton = event.target.closest('[data-open-subject]');
+    const subjectCard = event.target.closest('.subject-card');
+    const sideLink = event.target.closest('a[href*="index.html?subject="]');
+    const subject = subjectButton?.dataset.openSubject
+      || subjectCard?.querySelector('[data-open-subject]')?.dataset.openSubject
+      || (sideLink ? new URL(sideLink.href, location.href).searchParams.get('subject') : null);
+
+    if (!validSubjects.has(subject)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.href = subjectPageUrl(subject);
+  }, true);
+
+  window.__latestSubjectPageUrl = subjectPageUrl;
+  window.__latestTopicalPageUrl = topicalPageUrl;
+})();
+
 // Open topical papers on their own page in the same browser tab.
 (() => {
   if (location.pathname.endsWith('/topical-papers.html')) return;
@@ -156,7 +199,9 @@
         location.href = 'index.html';
         return;
       }
-      location.href = `topical-papers.html?subject=${encodeURIComponent(subject)}`;
+      location.href = typeof window.__latestTopicalPageUrl === 'function'
+        ? window.__latestTopicalPageUrl(subject)
+        : `topical-papers.html?subject=${encodeURIComponent(subject)}&build=33`;
     });
     return true;
   }
