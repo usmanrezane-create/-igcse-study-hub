@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: usman-independent-ai
+    runtime: node
+    plan: free
+    branch: usman-ai-independent
+    buildCommand: cat .independent_archive/part-*.b64 | base64 -d > /tmp/usman-independent-ai.tar.gz && tar -xzf /tmp/usman-independent-ai.tar.gz && cd usman-independent-ai && npm install
+    startCommand: cd usman-independent-ai && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: MODEL_BASE_URL
+        sync: false
+      - key: MODEL_NAME
+        value: usman-ai
+      - key: MODEL_API_KEY
+        sync: false
+      - key: MODEL_SUPPORTS_VISION
+        value: "true"
+      - key: APP_NAME
+        value: Usman Independent AI
+      - key: APP_TAGLINE
+        value: Your self-hosted AI workspace
+      - key: MAX_FILE_MB
+        value: "100"
+      - key: MAX_FILES
+        value: "8"
+      - key: MAX_OUTPUT_TOKENS
+        value: "1800"
