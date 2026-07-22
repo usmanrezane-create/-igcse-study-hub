@@ -1,17 +1,18 @@
-// V15 — payment recovery, stable premium display, current routing, and V16 loader.
+// Payment recovery, stable Premium display, and current build routing.
 
-// Old bookmarked/cached subject URLs must always move to the current website build.
+// Move old cached/bookmarked URLs to the current website build.
 (() => {
-  const LATEST_BUILD = '36';
+  const LATEST_BUILD = '38';
   const params = new URLSearchParams(location.search);
   const currentBuild = Number(params.get('build') || 0);
   if (currentBuild < Number(LATEST_BUILD)) {
     params.set('build', LATEST_BUILD);
-    const nextUrl = `${location.pathname}?${params.toString()}${location.hash}`;
-    location.replace(nextUrl);
+    const query = params.toString();
+    location.replace(`${location.pathname}${query ? `?${query}` : ''}${location.hash}`);
   }
 })();
 
+// Let visitors reset a mistaken payment flow.
 (() => {
   const resetBeforeSignIn = document.getElementById('resetPaymentBeforeSignIn');
   const resetAfterError = document.getElementById('resetPaymentAfterError');
@@ -84,9 +85,7 @@
   function savePremiumCache() {
     const expiry = typeof profile !== 'undefined' ? profile?.premium_until : null;
     if (!expiry) return;
-    try {
-      window.localStorage.setItem(PREMIUM_UI_CACHE_KEY, JSON.stringify({ expiry }));
-    } catch {}
+    try { window.localStorage.setItem(PREMIUM_UI_CACHE_KEY, JSON.stringify({ expiry })); } catch {}
   }
 
   function clearPremiumCache() {
@@ -107,10 +106,7 @@
 
     const realActive = typeof isPremiumActive === 'function' && isPremiumActive();
     if (realActive) savePremiumCache();
-
-    if (!realActive && typeof session !== 'undefined' && session?.user && typeof profile !== 'undefined' && profile) {
-      clearPremiumCache();
-    }
+    if (!realActive && typeof session !== 'undefined' && session?.user && typeof profile !== 'undefined' && profile) clearPremiumCache();
 
     const displayActive = realActive || readCachedPremium();
     const topButton = document.getElementById('premiumTop');
@@ -148,9 +144,9 @@
   updatePaymentUI();
 })();
 
-// Force every subject to use the same latest shared design build.
+// Force every subject and topical link to use build 38.
 (() => {
-  const BUILD = '36';
+  const BUILD = '38';
   const validSubjects = new Set(['maths', 'physics', 'chemistry', 'accounting']);
   const subjectPageUrl = subject => `index.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
   const topicalPageUrl = subject => `topical-papers.html?subject=${encodeURIComponent(subject)}&build=${BUILD}`;
@@ -171,7 +167,7 @@
   }
 
   refreshSubjectLinks();
-  new MutationObserver(refreshSubjectLinks).observe(document.documentElement, { childList: true, subtree: true });
+  new MutationObserver(refreshSubjectLinks).observe(document.documentElement, { childList:true, subtree:true });
 
   document.addEventListener('click', event => {
     const subjectButton = event.target.closest('[data-open-subject]');
@@ -189,51 +185,4 @@
 
   window.__latestSubjectPageUrl = subjectPageUrl;
   window.__latestTopicalPageUrl = topicalPageUrl;
-})();
-
-// Open topical papers on their own page in the same browser tab.
-(() => {
-  if (location.pathname.endsWith('/topical-papers.html')) return;
-
-  const validSubjects = new Set(['maths', 'physics', 'chemistry', 'accounting']);
-
-  function connectTopicalRoute() {
-    const button = document.getElementById('finalOpenTopical');
-    if (!button || button.dataset.routesToTopicalPage === 'true') return false;
-
-    const replacement = button.cloneNode(true);
-    replacement.dataset.routesToTopicalPage = 'true';
-    replacement.setAttribute('aria-expanded', 'false');
-    button.replaceWith(replacement);
-
-    replacement.addEventListener('click', () => {
-      const subject = new URLSearchParams(location.search).get('subject');
-      if (!validSubjects.has(subject)) {
-        location.href = 'index.html?build=36';
-        return;
-      }
-      location.href = typeof window.__latestTopicalPageUrl === 'function'
-        ? window.__latestTopicalPageUrl(subject)
-        : `topical-papers.html?subject=${encodeURIComponent(subject)}&build=36`;
-    });
-    return true;
-  }
-
-  setTimeout(() => {
-    if (connectTopicalRoute()) return;
-    const observer = new MutationObserver(() => {
-      if (connectTopicalRoute()) observer.disconnect();
-    });
-    observer.observe(document.documentElement, { childList: true, subtree: true });
-    setTimeout(() => observer.disconnect(), 10000);
-  }, 0);
-})();
-
-// Load the top navigation and website-tools strip directly.
-(() => {
-  if (document.querySelector('script[data-v16-navigation-tools]')) return;
-  const script = document.createElement('script');
-  script.src = 'v16-navigation-tools.js?v=36';
-  script.dataset.v16NavigationTools = 'true';
-  document.head.appendChild(script);
 })();
