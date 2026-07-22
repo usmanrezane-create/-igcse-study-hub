@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: my-ai-studio
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5-mini
+      - key: OPENAI_IMAGE_MODEL
+        value: gpt-image-1
+      - key: APP_NAME
+        value: My AI Studio
+      - key: APP_TAGLINE
+        value: Chat, create, edit and work with files
+      - key: MAX_FILE_MB
+        value: "25"
+      - key: MAX_FILES
+        value: "8"
+      - key: ENABLE_WEB_SEARCH
+        value: "true"
+      - key: ENABLE_MODERATION
+        value: "true"
